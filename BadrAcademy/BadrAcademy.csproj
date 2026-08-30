@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.props" Condition="Exists('..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDECA35C-388B-4BD8-A6CA-BB2549C02232}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BadrAcademy</RootNamespace>
+    <AssemblyName>BadrAcademy</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>5</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CredentialManagement, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CredentialManagement.1.0.2\lib\net35\CredentialManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=3.0.3.3048, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.config.e_sqlite3.3.0.3\lib\net471\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=3.0.3.3048, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.3.0.3\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=3.0.3.3048, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.3.0.3\lib\net471\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\ctrEditableGridViewWtihComoboxPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ctrEditableGridViewWtihComoboxPage.Designer.cs">
+      <DependentUpon>ctrEditableGridViewWtihComoboxPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Departments\Controls\ctrDepartmentsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Departments\Controls\ctrDepartmentsPage.Designer.cs">
+      <DependentUpon>ctrDepartmentsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Departments\frmAddEditDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Departments\frmAddEditDepartment.Designer.cs">
+      <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctors\Controls\ctrDoctorsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctors\Controls\ctrDoctorsPage.Designer.cs">
+      <DependentUpon>ctrDoctorsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctors\frmAddEditDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctors\frmAddEditDoctor.Designer.cs">
+      <DependentUpon>frmAddEditDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Halls\Controls\ctrHallsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Halls\Controls\ctrHallsPage.Designer.cs">
+      <DependentUpon>ctrHallsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Halls\frmAddEditHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Halls\frmAddEditHall.Designer.cs">
+      <DependentUpon>frmAddEditHall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Levels\Controls\ctrHallsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Levels\Controls\ctrHallsPage.Designer.cs">
+      <DependentUpon>ctrHallsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Levels\frmAddEditLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Levels\frmAddEditLevel.Designer.cs">
+      <DependentUpon>frmAddEditLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Misc\Controls\ctrWait.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Misc\Controls\ctrWait.Designer.cs">
+      <DependentUpon>ctrWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Misc\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misc\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Misc\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misc\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\Controls\ctrSettingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Controls\ctrSettingsPage.Designer.cs">
+      <DependentUpon>ctrSettingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Settings\frmAddEditSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\frmAddEditSetting.Designer.cs">
+      <DependentUpon>frmAddEditSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingsPage.Designer.cs">
+      <DependentUpon>ctrSubjectOfferingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\frmSubjectOfferings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\frmSubjectOfferings.Designer.cs">
+      <DependentUpon>frmSubjectOfferings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Subjects\Controls\ctrSubjectsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Subjects\Controls\ctrSubjectsPage.Designer.cs">
+      <DependentUpon>ctrSubjectsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Subjects\frmAddEditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Subjects\frmAddEditSubject.Designer.cs">
+      <DependentUpon>frmAddEditSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Controls\ctrUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Controls\ctrUserCard.Designer.cs">
+      <DependentUpon>ctrUserCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\Controls\ctrUsersPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\Controls\ctrUsersPage.Designer.cs">
+      <DependentUpon>ctrUsersPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmChangeUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmChangeUserPassword.Designer.cs">
+      <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmShowUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmShowUserInfo.Designer.cs">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\clsGlobal.cs" />
+    <Compile Include="Helpers\clsAsyncMethodExecutor.cs" />
+    <Compile Include="Helpers\clsButtonHelper.cs" />
+    <Compile Include="Helpers\clsCredentials.cs" />
+    <Compile Include="Helpers\clsDataGridViewHelper.cs" />
+    <Compile Include="Helpers\clsMessageBoxHelper.cs" />
+    <Compile Include="Helpers\clsOpenFormHelper.cs" />
+    <Compile Include="Helpers\clsTextBoxValidator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ctrEditableGridViewWtihComoboxPage.resx">
+      <DependentUpon>ctrEditableGridViewWtihComoboxPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Departments\Controls\ctrDepartmentsPage.resx">
+      <DependentUpon>ctrDepartmentsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Departments\frmAddEditDepartment.resx">
+      <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctors\Controls\ctrDoctorsPage.resx">
+      <DependentUpon>ctrDoctorsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctors\frmAddEditDoctor.resx">
+      <DependentUpon>frmAddEditDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Halls\Controls\ctrHallsPage.resx">
+      <DependentUpon>ctrHallsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Halls\frmAddEditHall.resx">
+      <DependentUpon>frmAddEditHall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Levels\Controls\ctrHallsPage.resx">
+      <DependentUpon>ctrHallsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Levels\frmAddEditLevel.resx">
+      <DependentUpon>frmAddEditLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misc\Controls\ctrWait.resx">
+      <DependentUpon>ctrWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misc\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misc\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Controls\ctrSettingsPage.resx">
+      <DependentUpon>ctrSettingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\frmAddEditSetting.resx">
+      <DependentUpon>frmAddEditSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingsPage.resx">
+      <DependentUpon>ctrSubjectOfferingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubjectAssignments\frmSubjectOfferings.resx">
+      <DependentUpon>frmSubjectOfferings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Subjects\Controls\ctrSubjectsPage.resx">
+      <DependentUpon>ctrSubjectsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Subjects\frmAddEditSubject.resx">
+      <DependentUpon>frmAddEditSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Controls\ctrUserCard.resx">
+      <DependentUpon>ctrUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\Controls\ctrUsersPage.resx">
+      <DependentUpon>ctrUsersPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmChangeUserPassword.resx">
+      <DependentUpon>frmChangeUserPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmShowUserInfo.resx">
+      <DependentUpon>frmShowUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{0682716d-19ed-423b-b244-c52905cce08e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userWhite64.png" />
+    <None Include="Resources\users64.png" />
+    <None Include="Resources\acadimcData64.png" />
+    <None Include="Resources\account64.png" />
+    <None Include="Resources\account641.png" />
+    <Content Include="Resources\ActiveUser32.png" />
+    <Content Include="Resources\add-Users128.png" />
+    <Content Include="Resources\add-Users256.png" />
+    <Content Include="Resources\add32.png" />
+    <Content Include="Resources\address32.png" />
+    <Content Include="Resources\blueClose32.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\changePassword32.png" />
+    <None Include="Resources\ChangePasswordWhite32.png" />
+    <Content Include="Resources\close32.png" />
+    <Content Include="Resources\date32.png" />
+    <Content Include="Resources\delete32.png" />
+    <None Include="Resources\DistributionsWhite32.png" />
+    <None Include="Resources\departmentWhite32.png" />
+    <None Include="Resources\department128.png" />
+    <None Include="Resources\doctorWhile32.png" />
+    <None Include="Resources\department32.png" />
+    <Content Include="Resources\edit32.png" />
+    <Content Include="Resources\expense 128.png" />
+    <Content Include="Resources\expenses32.png" />
+    <Content Include="Resources\GreenSpinner92.gif" />
+    <None Include="Resources\HallsWhite32.png" />
+    <None Include="Resources\hall32.png" />
+    <None Include="Resources\Hall128.png" />
+    <Content Include="Resources\Home32.png" />
+    <None Include="Resources\home64.png" />
+    <None Include="Resources\home641.png" />
+    <None Include="Resources\home642.png" />
+    <None Include="Resources\home643.png" />
+    <Content Include="Resources\id-card32.png" />
+    <None Include="Resources\LevelWhite32.png" />
+    <None Include="Resources\Level32.png" />
+    <None Include="Resources\level128.png" />
+    <Content Include="Resources\log-in32.png" />
+    <None Include="Resources\loginGIF.gif" />
+    <None Include="Resources\LoginImage248.png" />
+    <Content Include="Resources\logout32.png" />
+    <None Include="Resources\logoutWhite32.png" />
+    <Content Include="Resources\mail32.png" />
+    <Content Include="Resources\management128.png" />
+    <Content Include="Resources\maximize.png" />
+    <Content Include="Resources\MedFinanceLoginGifGreen500.gif" />
+    <Content Include="Resources\MedFinanceLoginImage512.png" />
+    <Content Include="Resources\minmize.png" />
+    <None Include="Resources\Model.png" />
+    <Content Include="Resources\name32.png" />
+    <Content Include="Resources\name321.png" />
+    <None Include="Resources\number32.png" />
+    <Content Include="Resources\partner32.png" />
+    <Content Include="Resources\partners128.png" />
+    <Content Include="Resources\password-manager128.png" />
+    <Content Include="Resources\password32.png" />
+    <Content Include="Resources\phone32.png" />
+    <Content Include="Resources\revenue32.png" />
+    <Content Include="Resources\Role32.png" />
+    <Content Include="Resources\save32.png" />
+    <None Include="Resources\ScheduleWhile32.png" />
+    <None Include="Resources\semester.png" />
+    <Content Include="Resources\setting321.png" />
+    <None Include="Resources\settingsWhite32.png" />
+    <None Include="Resources\settings64.png" />
+    <None Include="Resources\settings641.png" />
+    <None Include="Resources\setting64.png" />
+    <None Include="Resources\setting641.png" />
+    <Content Include="Resources\sharePercent32.png" />
+    <Content Include="Resources\Spinner100.gif" />
+    <None Include="Resources\SubjectWhite32.png" />
+    <None Include="Resources\subjects128.png" />
+    <Content Include="Resources\supplier128.png" />
+    <Content Include="Resources\supplier32.png" />
+    <None Include="Resources\tests64.png" />
+    <None Include="Resources\teacher128.png" />
+    <Content Include="Resources\toSideBarIcon128.png" />
+    <Content Include="Resources\user32.png" />
+    <Content Include="Resources\UserInfo128.png" />
+    <Content Include="Resources\UserInfo32.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.props'))" />
+    <Error Condition="!Exists('..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.targets'))" />
+  </Target>
+  <Import Project="..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.targets" Condition="Exists('..\packages\SourceGear.sqlite3.3.50.4.5\build\net471\SourceGear.sqlite3.targets')" />
+</Project>
