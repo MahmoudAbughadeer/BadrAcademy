@@ -26,19 +26,32 @@ namespace BadrAcademy.Forms.SubjectAssignments
         public delegate Task SaveCompletedAsync();
 
         public event SaveCompletedAsync SaveCompleted;
+
         private async void frmSubjectOfferings_Load(object sender, EventArgs e)
         {
 
-            cbLevels.DataSource = clsLevel.GetAllAsync();
+            cbLevels.DataSource = await clsLevel.GetAllAsync();
             cbLevels.ValueMember = "LevelID";
             cbLevels.DisplayMember = "LevelName";
 
-
-            cbDepartments.DataSource = clsDepartment.GetAllAsync();
+            //================================================================
+            cbDepartments.DataSource = await clsDepartment.GetAllAsync(); ;
             cbDepartments.ValueMember = "DepartmentID";
             cbDepartments.DisplayMember = "DepartmentName";
 
+            //================================================================
+            cbSubjects.DataSource = await clsSubject.GetAllAsync(); ;
+            cbSubjects.ValueMember = "SubjectID";
+            cbSubjects.DisplayMember = "SubjectName";
 
+            //================================================================
+            cbDoctors.DataSource = await clsDoctor.GetAllAsync();
+            cbDoctors.ValueMember = "DoctorID";
+            cbDoctors.DisplayMember = "DoctorName";
+
+
+            cbSemesters.SelectedIndex = 0;
+            cbLevels.SelectedIndex = 2;
 
             InitializeDataGridViewColumns();//Here I add the columns manually
             dgvSubjectAssignments.AutoGenerateColumns = false;//this is adding columnss/property name that come from database
@@ -48,7 +61,9 @@ namespace BadrAcademy.Forms.SubjectAssignments
             dgvSubjectAssignments.RowTemplate.Height = 35;
             dgvSubjectAssignments.DefaultCellStyle.Padding = new Padding(5);
 
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectOfferings);
+
+
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectOfferingsDataAsync);
         }
 
 
@@ -58,37 +73,59 @@ namespace BadrAcademy.Forms.SubjectAssignments
         {
             dgvSubjectAssignments.Rows[e.RowIndex].Cells["RowNumber"].Value = e.RowIndex + 1;
         }
+        
+        private async void dgvSubjectAssignments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
 
+            if (dgvSubjectAssignments.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                int offeringId = clsDataGridViewHelper.GetCellValueAsInt(dgvSubjectAssignments, "OfferingID");
+
+                DialogResult result = MessageBox.Show("هل تريد حذف هذا السجل؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result != DialogResult.Yes)
+                    return;
+
+                bool deleted = await clsSubjectOffering.DeleteAsync(offeringId);
+
+                if (deleted)
+                {
+                    await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectOfferingsDataAsync);
+                    await SaveCompleted?.Invoke();
+                }
+                    
+                else
+                    MessageBox.Show("فشل حذف السجل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
 
         //Private Methods
-        private async Task LoadSubjectOfferings()
+        private async Task LoadSubjectOfferingsDataAsync()
         {
             _bindingSource.DataSource = null;
-            int subjectID = Convert.ToInt32(cbSubjects.SelectedValue);
-            int levelID = Convert.ToInt32(cbLevels.SelectedValue);
-            int departmentID = Convert.ToInt32(cbDepartments.SelectedValue);
-            string semester = cbSemesters.Text.Trim();
-
-            DataTable subjectOfferings = await clsSubjectOffering.GetByLevelDepartmentSemesterAsync(levelID, departmentID, semester);
+            DataTable subjectOfferings = await clsSubjectOffering.GetAllWithNamesAsync();
             _bindingSource.DataSource = subjectOfferings;
             dgvSubjectAssignments.DataSource = _bindingSource;
         }
 
-        private void LoadUserInfoFromFormToUserObject()
+        private void LoadSubjectOfferingInfoFromFormToSubjectOfferingObject()
         {
             int subjectID = Convert.ToInt32(cbSubjects.SelectedValue);
             int levelID = Convert.ToInt32(cbLevels.SelectedValue);
             int departmentID = Convert.ToInt32(cbDepartments.SelectedValue);
+            int doctorID = Convert.ToInt32(cbDoctors.SelectedValue);
             string semester = cbSemesters.Text.Trim();
 
-            _subjectOffering = new clsSubjectOffering(subjectID, levelID, departmentID, semester);
+            _subjectOffering = new clsSubjectOffering(subjectID, levelID, departmentID, doctorID, semester);
         }
 
         private void InitializeDataGridViewColumns()
         {
             dgvSubjectAssignments.Columns.Clear();
-
 
             dgvSubjectAssignments.Columns.Insert(0, new DataGridViewTextBoxColumn
             {
@@ -109,17 +146,17 @@ namespace BadrAcademy.Forms.SubjectAssignments
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "SubjectName",
-                DataPropertyName = "SubjectName",
-                HeaderText = "اسم المادة",
-                FillWeight = 30
+                Name = "LevelName",
+                DataPropertyName = "LevelName",
+                HeaderText = "المستوى",
+                FillWeight = 15
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "LevelName",
-                DataPropertyName = "LevelName",
-                HeaderText = "المستوى",
+                Name = "Semester",
+                DataPropertyName = "Semester",
+                HeaderText = "الفصل",
                 FillWeight = 15
             });
 
@@ -133,19 +170,47 @@ namespace BadrAcademy.Forms.SubjectAssignments
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "Semester",
-                DataPropertyName = "Semester",
-                HeaderText = "الفصل",
+                Name = "SubjectName",
+                DataPropertyName = "SubjectName",
+                HeaderText = "المقرر",
+                FillWeight = 20
+            });
+
+            dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DoctorName",
+                DataPropertyName = "DoctorName",
+                HeaderText = "الدكتور",
                 FillWeight = 15
             });
 
+            dgvSubjectAssignments.Columns.Add(new DataGridViewButtonColumn
+            {
+                Name = "Delete",
+                HeaderText = "حذف",
+                Text = "X",
+                UseColumnTextForButtonValue = true,
+                FlatStyle = FlatStyle.Flat,
+                FillWeight = 10
+            });
+        }
+        
+        private void ApplyFilter()
+        {
+            string levelName = cbLevels.Text.Trim();
+            string semester = cbSemesters.Text.Trim() == "لاشئ" ? string.Empty : cbSemesters.Text.Trim();
+            string departmentName = cbDepartments.Text.Trim() == "لاشئ" ? string.Empty : cbDepartments.Text.Trim();
+
+            _bindingSource.Filter = $@"LevelName LIKE '%{levelName}%' 
+                                       AND (Semester = '' OR Semester LIKE '%{semester}%')
+                                       AND (DepartmentName = '' OR DepartmentName LIKE '%{departmentName}%')";
         }
 
-
+        
         //Buttons Events
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            LoadUserInfoFromFormToUserObject();
+            LoadSubjectOfferingInfoFromFormToSubjectOfferingObject();
 
             if (!await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, () => _subjectOffering.SaveAsync()))
             {
@@ -155,16 +220,16 @@ namespace BadrAcademy.Forms.SubjectAssignments
             }
 
             await SaveCompleted?.Invoke();
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectOfferings);         
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectOfferingsDataAsync);         
+        }
+
+
+        //ComboBox events
+        private void cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
         }
 
         
     }
 }
-
-
-
-
-
-
-

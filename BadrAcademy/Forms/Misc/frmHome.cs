@@ -4,6 +4,7 @@ using BadrAcademy.Forms.Halls.Controls;
 using BadrAcademy.Forms.Levels.Controls;
 using BadrAcademy.Forms.Misc.Controls;
 using BadrAcademy.Forms.Settings.Controls;
+using BadrAcademy.Forms.SubjectAssignments.Controls;
 using BadrAcademy.Forms.Subjects.Controls;
 using BadrAcademy.Forms.Users;
 using BadrAcademy.Forms.Users.Controls;
@@ -73,7 +74,7 @@ namespace BadrAcademy.Forms.Misc
 
         private void tsmiSubjectsAssignment_Click(object sender, EventArgs e)
         {
-
+            OpenPage(new ctrSubjectOfferingsPage());
         }
 
         private void tsmiExamScchedule_Click(object sender, EventArgs e)
