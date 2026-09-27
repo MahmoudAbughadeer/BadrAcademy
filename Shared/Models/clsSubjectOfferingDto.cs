@@ -12,6 +12,7 @@ namespace Shared.Models
         public int SubjectID { get; set; }
         public int LevelID { get; set; }
         public int DepartmentID { get; set; }
+        public int DoctorID { get; set; }
         public string Semester { get; set; }
     }
 }

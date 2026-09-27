@@ -99,7 +99,7 @@ namespace BadrAcademy.Forms.Subjects.Controls
             _bindingSource.DataSource = null;
 
 
-            DataTable subjects = await clsSubject.GetAllAsync(_currentPage, _pageSize);
+            DataTable subjects = await clsSubject.GetAllAsync();
 
             _bindingSource.DataSource = subjects;
             dgvSubjects.DataSource = _bindingSource;
@@ -133,7 +133,7 @@ namespace BadrAcademy.Forms.Subjects.Controls
             _isLoading = true;
             _currentPage++;
 
-            DataTable newSubjects = await clsSubject.GetAllAsync(_currentPage, _pageSize);
+            DataTable newSubjects = await clsSubject.GetAllAsync();
             
             if (_bindingSource.DataSource is DataTable existingTable)
                 foreach (DataRow row in newSubjects.Rows)

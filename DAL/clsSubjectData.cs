@@ -98,7 +98,7 @@ namespace DAL
             }
         }
 
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
+        public static async Task<DataTable> GetAllAsync()
         {
             DataTable dt = new DataTable();
 
@@ -108,13 +108,8 @@ namespace DAL
                 using (SqliteCommand cmd = new SqliteCommand(@"
                     SELECT SubjectID, SubjectName
                     FROM Subjects
-                    ORDER BY SubjectID
-                    LIMIT @RowsPerPage OFFSET @Offset;", conn))
+                    ORDER BY SubjectID", conn))
                 {
-                    int offset = (pageNumber - 1) * rowsPerPage;
-                    cmd.Parameters.AddWithValue("@RowsPerPage", rowsPerPage);
-                    cmd.Parameters.AddWithValue("@Offset", offset);
-
                     await conn.OpenAsync();
 
                     using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())

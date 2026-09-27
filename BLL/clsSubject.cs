@@ -103,11 +103,11 @@ namespace BLL
 
         }
 
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
+        public static async Task<DataTable> GetAllAsync()
         {
             try
             {
-                return await clsSubjectData.GetAllAsync(pageNumber, rowsPerPage);
+                return await clsSubjectData.GetAllAsync();
             }
             catch
             {

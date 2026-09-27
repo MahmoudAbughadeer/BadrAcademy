@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnShowSubjectOffering = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnEditSubjectOfferings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.cbSubjects = new System.Windows.Forms.ComboBox();
             this.cbSemesters = new System.Windows.Forms.ComboBox();
@@ -49,6 +56,10 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -58,53 +69,32 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.btnShowSubjectOffering);
-            this.panel1.Controls.Add(this.btnEdit);
+            this.panel1.Controls.Add(this.btnEditSubjectOfferings);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 704);
+            this.panel1.Location = new System.Drawing.Point(0, 750);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1231, 70);
+            this.panel1.Size = new System.Drawing.Size(1260, 70);
             this.panel1.TabIndex = 1;
             // 
-            // btnShowSubjectOffering
+            // btnEditSubjectOfferings
             // 
-            this.btnShowSubjectOffering.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnShowSubjectOffering.BackColor = System.Drawing.Color.White;
-            this.btnShowSubjectOffering.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowSubjectOffering.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnShowSubjectOffering.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowSubjectOffering.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowSubjectOffering.ForeColor = System.Drawing.Color.Black;
-            this.btnShowSubjectOffering.Image = global::BadrAcademy.Properties.Resources.UserInfo32;
-            this.btnShowSubjectOffering.Location = new System.Drawing.Point(636, 10);
-            this.btnShowSubjectOffering.Name = "btnShowSubjectOffering";
-            this.btnShowSubjectOffering.Size = new System.Drawing.Size(230, 50);
-            this.btnShowSubjectOffering.TabIndex = 3;
-            this.btnShowSubjectOffering.Text = "معلومات تعيين المقرر   ";
-            this.btnShowSubjectOffering.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnShowSubjectOffering.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowSubjectOffering.UseVisualStyleBackColor = false;
-            this.btnShowSubjectOffering.Click += new System.EventHandler(this.btnShowUser_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEdit.BackColor = System.Drawing.Color.White;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Image = global::BadrAcademy.Properties.Resources.edit32;
-            this.btnEdit.Location = new System.Drawing.Point(365, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(248, 50);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "التحكم فى تعيين المقررات";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEditSubjectOfferings.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditSubjectOfferings.BackColor = System.Drawing.Color.White;
+            this.btnEditSubjectOfferings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditSubjectOfferings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnEditSubjectOfferings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditSubjectOfferings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditSubjectOfferings.ForeColor = System.Drawing.Color.Black;
+            this.btnEditSubjectOfferings.Image = global::BadrAcademy.Properties.Resources.edit32;
+            this.btnEditSubjectOfferings.Location = new System.Drawing.Point(506, 10);
+            this.btnEditSubjectOfferings.Name = "btnEditSubjectOfferings";
+            this.btnEditSubjectOfferings.Size = new System.Drawing.Size(248, 50);
+            this.btnEditSubjectOfferings.TabIndex = 2;
+            this.btnEditSubjectOfferings.Text = "التحكم فى تعيين المقررات";
+            this.btnEditSubjectOfferings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditSubjectOfferings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditSubjectOfferings.UseVisualStyleBackColor = false;
+            this.btnEditSubjectOfferings.Click += new System.EventHandler(this.btnEditSubjectOfferings_Click);
             // 
             // panel2
             // 
@@ -113,11 +103,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1231, 248);
+            this.panel2.Size = new System.Drawing.Size(1260, 323);
             this.panel2.TabIndex = 2;
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox3);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.cbDepartments);
             this.panel5.Controls.Add(this.cbSubjects);
             this.panel5.Controls.Add(this.cbSemesters);
@@ -125,78 +123,182 @@
             this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(0, 198);
+            this.panel5.Location = new System.Drawing.Point(0, 214);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1231, 50);
+            this.panel5.Size = new System.Drawing.Size(1260, 109);
             this.panel5.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(669, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 36);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "الشعب:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox3.Image = global::BadrAcademy.Properties.Resources.department32;
+            this.pictureBox3.Location = new System.Drawing.Point(629, 20);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 80;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(332, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 36);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "المقرر الدراسي:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox2.Image = global::BadrAcademy.Properties.Resources.semester;
+            this.pictureBox2.Location = new System.Drawing.Point(292, 20);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 82;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(857, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 36);
+            this.label5.TabIndex = 77;
+            this.label5.Text = "الفصل الدراسي:";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox4.Image = global::BadrAcademy.Properties.Resources.semester;
+            this.pictureBox4.Location = new System.Drawing.Point(827, 20);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 78;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1051, 18);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 36);
+            this.label6.TabIndex = 75;
+            this.label6.Text = "المستوي:";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox6.Image = global::BadrAcademy.Properties.Resources.Level32;
+            this.pictureBox6.Location = new System.Drawing.Point(1017, 20);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 76;
+            this.pictureBox6.TabStop = false;
             // 
             // cbDepartments
             // 
+            this.cbDepartments.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbDepartments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartments.FormattingEnabled = true;
-            this.cbDepartments.Location = new System.Drawing.Point(465, 3);
+            this.cbDepartments.Location = new System.Drawing.Point(548, 58);
             this.cbDepartments.Margin = new System.Windows.Forms.Padding(4);
             this.cbDepartments.Name = "cbDepartments";
             this.cbDepartments.Size = new System.Drawing.Size(246, 44);
             this.cbDepartments.TabIndex = 74;
+            this.cbDepartments.SelectedIndexChanged += new System.EventHandler(this.cb_SelectedIndexChanged);
             // 
             // cbSubjects
             // 
+            this.cbSubjects.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSubjects.FormattingEnabled = true;
-            this.cbSubjects.Location = new System.Drawing.Point(149, 3);
+            this.cbSubjects.Location = new System.Drawing.Point(232, 58);
             this.cbSubjects.Margin = new System.Windows.Forms.Padding(4);
             this.cbSubjects.Name = "cbSubjects";
             this.cbSubjects.Size = new System.Drawing.Size(308, 44);
             this.cbSubjects.TabIndex = 73;
+            this.cbSubjects.SelectedIndexChanged += new System.EventHandler(this.cb_SelectedIndexChanged);
             // 
             // cbSemesters
             // 
+            this.cbSemesters.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbSemesters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSemesters.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSemesters.FormattingEnabled = true;
             this.cbSemesters.Items.AddRange(new object[] {
-            "نوع الفصل",
             "الأول",
-            "الثاني"});
-            this.cbSemesters.Location = new System.Drawing.Point(719, 3);
+            "الثاني",
+            "الصيفي"});
+            this.cbSemesters.Location = new System.Drawing.Point(802, 58);
             this.cbSemesters.Margin = new System.Windows.Forms.Padding(4);
             this.cbSemesters.Name = "cbSemesters";
             this.cbSemesters.Size = new System.Drawing.Size(192, 44);
             this.cbSemesters.TabIndex = 72;
+            this.cbSemesters.SelectedIndexChanged += new System.EventHandler(this.cb_SelectedIndexChanged);
             // 
             // cbLevels
             // 
+            this.cbLevels.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbLevels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLevels.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLevels.FormattingEnabled = true;
-            this.cbLevels.Location = new System.Drawing.Point(919, 3);
+            this.cbLevels.Location = new System.Drawing.Point(1002, 58);
             this.cbLevels.Margin = new System.Windows.Forms.Padding(4);
             this.cbLevels.Name = "cbLevels";
             this.cbLevels.Size = new System.Drawing.Size(136, 44);
             this.cbLevels.TabIndex = 71;
+            this.cbLevels.SelectedIndexChanged += new System.EventHandler(this.cb_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1052, 4);
+            this.label2.Location = new System.Drawing.Point(1132, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 42);
+            this.label2.Size = new System.Drawing.Size(125, 95);
             this.label2.TabIndex = 0;
             this.label2.Text = "بحث بواسطة:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(430, 3);
+            this.panel4.Location = new System.Drawing.Point(450, 13);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(370, 183);
+            this.panel4.Size = new System.Drawing.Size(342, 176);
             this.panel4.TabIndex = 2;
             // 
             // label1
@@ -204,7 +306,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 138);
+            this.label1.Location = new System.Drawing.Point(54, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 46);
             this.label1.TabIndex = 0;
@@ -214,7 +316,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::BadrAcademy.Properties.Resources.subjects128;
-            this.pictureBox1.Location = new System.Drawing.Point(121, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(110, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -227,10 +329,10 @@
             this.panel3.Controls.Add(this.ctrWait1);
             this.panel3.Controls.Add(this.dgvSubjectOfferings);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 248);
+            this.panel3.Location = new System.Drawing.Point(0, 323);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(8, 0, 3, 0);
-            this.panel3.Size = new System.Drawing.Size(1231, 456);
+            this.panel3.Size = new System.Drawing.Size(1260, 427);
             this.panel3.TabIndex = 3;
             // 
             // ctrWait1
@@ -238,7 +340,7 @@
             this.ctrWait1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ctrWait1.BackColor = System.Drawing.Color.White;
             this.ctrWait1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrWait1.Location = new System.Drawing.Point(435, 183);
+            this.ctrWait1.Location = new System.Drawing.Point(449, 168);
             this.ctrWait1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrWait1.Name = "ctrWait1";
             this.ctrWait1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -254,23 +356,23 @@
             this.dgvSubjectOfferings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubjectOfferings.BackgroundColor = System.Drawing.Color.White;
             this.dgvSubjectOfferings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubjectOfferings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectOfferings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubjectOfferings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubjectOfferings.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubjectOfferings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubjectOfferings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubjectOfferings.Location = new System.Drawing.Point(8, 0);
             this.dgvSubjectOfferings.MultiSelect = false;
@@ -279,10 +381,9 @@
             this.dgvSubjectOfferings.RowHeadersWidth = 51;
             this.dgvSubjectOfferings.RowTemplate.Height = 24;
             this.dgvSubjectOfferings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubjectOfferings.Size = new System.Drawing.Size(1218, 454);
+            this.dgvSubjectOfferings.Size = new System.Drawing.Size(1247, 425);
             this.dgvSubjectOfferings.TabIndex = 8;
-            this.dgvSubjectOfferings.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUsers_RowPostPaint);
-            this.dgvSubjectOfferings.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvUsers_Scroll);
+            this.dgvSubjectOfferings.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvSubjectOfferings_RowPostPaint);
             // 
             // ctrSubjectOfferingsPage
             // 
@@ -296,12 +397,16 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ctrSubjectOfferingsPage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(1231, 774);
-            this.Load += new System.EventHandler(this.ctrUsersPage_Load);
+            this.Size = new System.Drawing.Size(1260, 820);
+            this.Load += new System.EventHandler(this.dgvSubjectOfferings_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -314,7 +419,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnEditSubjectOfferings;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
@@ -324,10 +429,17 @@
         private System.Windows.Forms.DataGridView dgvSubjectOfferings;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnShowSubjectOffering;
         private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.ComboBox cbSubjects;
         private System.Windows.Forms.ComboBox cbSemesters;
         private System.Windows.Forms.ComboBox cbLevels;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

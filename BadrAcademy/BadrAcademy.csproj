@@ -95,12 +95,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\ctrEditableGridViewWtihComoboxPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\ctrEditableGridViewWtihComoboxPage.Designer.cs">
-      <DependentUpon>ctrEditableGridViewWtihComoboxPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Departments\Controls\ctrDepartmentsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,9 +237,6 @@
     <Compile Include="Helpers\clsTextBoxValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ctrEditableGridViewWtihComoboxPage.resx">
-      <DependentUpon>ctrEditableGridViewWtihComoboxPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Departments\Controls\ctrDepartmentsPage.resx">
       <DependentUpon>ctrDepartmentsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +411,7 @@
     <Content Include="Resources\supplier32.png" />
     <None Include="Resources\tests64.png" />
     <None Include="Resources\teacher128.png" />
+    <None Include="Resources\teacher32.png" />
     <Content Include="Resources\toSideBarIcon128.png" />
     <Content Include="Resources\user32.png" />
     <Content Include="Resources\UserInfo128.png" />

@@ -9,19 +9,20 @@ namespace DAL
 {
     public class clsSubjectOfferingData
     {
-        public static async Task<int?> AddNewAsync(int subjectId, int levelId, int departmentId, string semester)
+        public static async Task<int?> AddNewAsync(int subjectId, int levelId, int departmentId, int doctorId, string semester)
         {
             try
             {
                 using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
                 using (SqliteCommand cmd = new SqliteCommand(@"
-                    INSERT INTO SubjectOfferings (SubjectID, LevelID, DepartmentID, Semester)
-                    VALUES (@SubjectID, @LevelID, @DepartmentID, @Semester);
+                    INSERT INTO SubjectOfferings (SubjectID, LevelID, DepartmentID, DoctorID, Semester)
+                    VALUES (@SubjectID, @LevelID, @DepartmentID, @DoctorID, @Semester);
                     SELECT last_insert_rowid();", conn))
                 {
                     cmd.Parameters.AddWithValue("@SubjectID", subjectId);
                     cmd.Parameters.AddWithValue("@LevelID", levelId);
                     cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
+                    cmd.Parameters.AddWithValue("@DoctorID", doctorId);
                     cmd.Parameters.AddWithValue("@Semester", semester);
 
                     await conn.OpenAsync();
@@ -38,7 +39,7 @@ namespace DAL
             }
         }
 
-        public static async Task<bool> UpdateAsync(int offeringId, int subjectId, int levelId, int departmentId, string semester)
+        public static async Task<bool> UpdateAsync(int offeringId, int subjectId, int levelId, int departmentId, int doctorID, string semester)
         {
             try
             {
@@ -48,6 +49,7 @@ namespace DAL
                     SET SubjectID    = @SubjectID,
                         LevelID      = @LevelID,
                         DepartmentID = @DepartmentID,
+                        DoctorID     = @DoctorID,
                         Semester     = @Semester
                     WHERE OfferingID = @OfferingID;", conn))
                 {
@@ -55,6 +57,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@SubjectID", subjectId);
                     cmd.Parameters.AddWithValue("@LevelID", levelId);
                     cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
+                    cmd.Parameters.AddWithValue("@DoctorID", doctorID);
                     cmd.Parameters.AddWithValue("@Semester", semester);
 
                     await conn.OpenAsync();
@@ -76,7 +79,7 @@ namespace DAL
             {
                 using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
                 using (SqliteCommand cmd = new SqliteCommand(@"
-                    SELECT OfferingID, SubjectID, LevelID, DepartmentID, Semester
+                    SELECT OfferingID, SubjectID, LevelID, DepartmentID, DoctorID, Semester
                     FROM SubjectOfferings
                     WHERE OfferingID = @OfferingID;", conn))
                 {
@@ -94,6 +97,7 @@ namespace DAL
                                 SubjectID = Convert.ToInt32(reader["SubjectID"]),
                                 LevelID = Convert.ToInt32(reader["LevelID"]),
                                 DepartmentID = Convert.ToInt32(reader["DepartmentID"]),
+                                DoctorID = Convert.ToInt32(reader["DoctorID"]),
                                 Semester = reader["Semester"].ToString()
                             };
                         }
@@ -109,41 +113,7 @@ namespace DAL
             }
         }
 
-        // Raw IDs — for internal/BL use
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
-                using (SqliteCommand cmd = new SqliteCommand(@"
-                    SELECT OfferingID, SubjectID, LevelID, DepartmentID, Semester
-                    FROM SubjectOfferings
-                    ORDER BY OfferingID
-                    LIMIT @RowsPerPage OFFSET @Offset;", conn))
-                {
-                    int offset = (pageNumber - 1) * rowsPerPage;
-                    cmd.Parameters.AddWithValue("@RowsPerPage", rowsPerPage);
-                    cmd.Parameters.AddWithValue("@Offset", offset);
-
-                    await conn.OpenAsync();
-
-                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
-                        dt.Load(reader);
-                }
-            }
-            catch (Exception ex)
-            {
-                clsLogger.LogError(ex.ToString());
-                throw;
-            }
-
-            return dt;
-        }
-
-        // Resolved names — for UI display (grids, dropdowns, etc.)
-        public static async Task<DataTable> GetAllWithNamesAsync(int pageNumber, int rowsPerPage)
+        public static async Task<DataTable> GetAllWithNamesAsync()
         {
             DataTable dt = new DataTable();
 
@@ -156,22 +126,39 @@ namespace DAL
                         s.SubjectName,
                         lv.LevelName,
                         dp.DepartmentName,
+                        d.DoctorName,
                         so.Semester
                     FROM SubjectOfferings so
-                    JOIN Subjects s    ON s.SubjectID       = so.SubjectID
-                    JOIN Levels lv     ON lv.LevelID        = so.LevelID
-                    JOIN Departments dp ON dp.DepartmentID  = so.DepartmentID
-                    ORDER BY so.OfferingID
-                    LIMIT @RowsPerPage OFFSET @Offset;", conn))
+                    JOIN Subjects s     ON s.SubjectID       = so.SubjectID
+                    JOIN Levels lv      ON lv.LevelID        = so.LevelID
+                    JOIN Departments dp ON dp.DepartmentID   = so.DepartmentID
+                    JOIN Doctors d      ON d.DoctorID        = so.DepartmentID
+                    ORDER BY so.OfferingID", conn))
                 {
-                    int offset = (pageNumber - 1) * rowsPerPage;
-                    cmd.Parameters.AddWithValue("@RowsPerPage", rowsPerPage);
-                    cmd.Parameters.AddWithValue("@Offset", offset);
-
                     await conn.OpenAsync();
 
-                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
-                        dt.Load(reader);
+                    using (SqliteDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        dt.Columns.Add("OfferingID", typeof(long));
+                        dt.Columns.Add("SubjectName", typeof(string));
+                        dt.Columns.Add("LevelName", typeof(string));
+                        dt.Columns.Add("DepartmentName", typeof(string));
+                        dt.Columns.Add("DoctorName", typeof(string));
+                        dt.Columns.Add("Semester", typeof(string));
+
+                        while(await reader.ReadAsync())
+                        {
+                            dt.Rows.Add(
+                                reader.GetInt64(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3),
+                                reader.GetString(4),
+                                reader.GetString(5)
+                                );
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -182,84 +169,7 @@ namespace DAL
 
             return dt;
         }
-
-        // Filter by Level + Department + Semester — main use case for building exam schedule UI
-        public static async Task<DataTable> GetByLevelDepartmentSemesterAsync(int levelId, int departmentId, string semester)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
-                using (SqliteCommand cmd = new SqliteCommand(@"
-                    SELECT
-                        so.OfferingID,
-                        s.SubjectName,
-                        lv.LevelName,
-                        dp.DepartmentName,
-                        so.Semester
-                    FROM SubjectOfferings so
-                    JOIN Subjects s     ON s.SubjectID      = so.SubjectID
-                    JOIN Levels lv      ON lv.LevelID       = so.LevelID
-                    JOIN Departments dp ON dp.DepartmentID  = so.DepartmentID
-                    WHERE so.LevelID      = @LevelID
-                      AND so.DepartmentID = @DepartmentID
-                      AND so.Semester     = @Semester
-                    ORDER BY s.SubjectName;", conn))
-                {
-                    cmd.Parameters.AddWithValue("@LevelID", levelId);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
-                    cmd.Parameters.AddWithValue("@Semester", semester);
-
-                    await conn.OpenAsync();
-
-                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
-                        dt.Load(reader);
-                }
-            }
-            catch (Exception ex)
-            {
-                clsLogger.LogError(ex.ToString());
-                throw;
-            }
-
-            return dt;
-        }
-
-        public static async Task<bool> IsExistsAsync(int subjectId, int levelId, int departmentId, string semester)
-        {
-            bool exists;
-            try
-            {
-                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
-                using (SqliteCommand cmd = new SqliteCommand(@"
-                    SELECT 1
-                    FROM SubjectOfferings
-                    WHERE SubjectID    = @SubjectID
-                      AND LevelID      = @LevelID
-                      AND DepartmentID = @DepartmentID
-                      AND Semester     = @Semester
-                    LIMIT 1;", conn))
-                {
-                    cmd.Parameters.AddWithValue("@SubjectID", subjectId);
-                    cmd.Parameters.AddWithValue("@LevelID", levelId);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
-                    cmd.Parameters.AddWithValue("@Semester", semester);
-
-                    await conn.OpenAsync();
-                    object result = await cmd.ExecuteScalarAsync();
-                    exists = result != null;
-                }
-            }
-            catch (Exception ex)
-            {
-                clsLogger.LogError(ex.ToString());
-                throw;
-            }
-
-            return exists;
-        }
-
+    
         public static async Task<bool> DeleteAsync(int offeringId)
         {
             try
@@ -283,5 +193,6 @@ namespace DAL
                 throw;
             }
         }
+    
     }
 }

@@ -190,8 +190,7 @@ namespace BadrAcademy.Forms.Levels
             "الأول",
             "الثاني",
             "الثالث",
-            "الرابع",
-            "الخامس"});
+            "الرابع"});
             this.cbLevelName.Location = new System.Drawing.Point(36, 84);
             this.cbLevelName.Margin = new System.Windows.Forms.Padding(4);
             this.cbLevelName.Name = "cbLevelName";

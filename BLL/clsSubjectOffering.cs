@@ -18,26 +18,29 @@ namespace BLL
         public int SubjectID { get; set; }
         public int LevelID { get; set; }
         public int DepartmentID { get; set; }
+        public int DoctorID { get; set; }
         public string Semester { get; set; }
 
 
         //Ctor
-        public clsSubjectOffering(int subjectID, int levelID, int departmentID, string semester)
+        public clsSubjectOffering(int subjectID, int levelID, int departmentID, int doctorID, string semester)
         {
             this._mode = enMode.Add;
             this.SubjectID = subjectID;
             this.LevelID = levelID;
             this.DepartmentID = departmentID;
+            this.DoctorID = doctorID;
             this.Semester = semester;
         }
 
-        private clsSubjectOffering(int? offeringID, int subjectID, int levelID, int departmentID, string semester)
+        private clsSubjectOffering(int? offeringID, int subjectID, int levelID, int departmentID, int doctorID, string semester)
         {
             this._mode = enMode.Update;
             this.OfferingID = offeringID;
             this.SubjectID = subjectID;
             this.LevelID = levelID;
             this.DepartmentID = departmentID;
+            this.DoctorID = doctorID;
             this.Semester = semester;
         }
 
@@ -47,7 +50,7 @@ namespace BLL
         {
             try
             {
-                int? offeringID = await clsSubjectOfferingData.AddNewAsync(this.SubjectID, this.LevelID, this.DepartmentID, this.Semester);
+                int? offeringID = await clsSubjectOfferingData.AddNewAsync(this.SubjectID, this.LevelID, this.DepartmentID, this.DoctorID, this.Semester);
                 this.OfferingID = offeringID;
                 return offeringID != null;
             }
@@ -64,7 +67,7 @@ namespace BLL
                 if (!this.OfferingID.HasValue)
                     return false;
 
-                return await clsSubjectOfferingData.UpdateAsync(this.OfferingID.Value, this.SubjectID, this.LevelID, this.DepartmentID, this.Semester);
+                return await clsSubjectOfferingData.UpdateAsync(this.OfferingID.Value, this.SubjectID, this.LevelID, this.DepartmentID, this.DoctorID, this.Semester);
             }
             catch
             {
@@ -103,7 +106,7 @@ namespace BLL
                     return null;
 
                 return new clsSubjectOffering(offering.OfferingID, offering.SubjectID, offering.LevelID,
-                    offering.DepartmentID, offering.Semester);
+                    offering.DepartmentID, offering.DoctorID, offering.Semester);
             }
             catch
             {
@@ -111,52 +114,12 @@ namespace BLL
             }
         }
 
-        // Raw IDs
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
+       
+        public static async Task<DataTable> GetAllWithNamesAsync()
         {
             try
             {
-                return await clsSubjectOfferingData.GetAllAsync(pageNumber, rowsPerPage);
-            }
-            catch
-            {
-                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
-            }
-        }
-
-        // Resolved names — for UI grids/display
-        public static async Task<DataTable> GetAllWithNamesAsync(int pageNumber, int rowsPerPage)
-        {
-            try
-            {
-                return await clsSubjectOfferingData.GetAllWithNamesAsync(pageNumber, rowsPerPage);
-            }
-            catch
-            {
-                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
-            }
-        }
-
-        
-        
-        // Filter by Level + Department + Semester — used when building exam schedule
-        public static async Task<DataTable> GetByLevelDepartmentSemesterAsync(int levelId, int departmentId, string semester)
-        {
-            try
-            {
-                return await clsSubjectOfferingData.GetByLevelDepartmentSemesterAsync(levelId, departmentId, semester);
-            }
-            catch
-            {
-                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
-            }
-        }
-
-        public static async Task<bool> IsExistsAsync(int subjectId, int levelId, int departmentId, string semester)
-        {
-            try
-            {
-                return await clsSubjectOfferingData.IsExistsAsync(subjectId, levelId, departmentId, semester);
+                return await clsSubjectOfferingData.GetAllWithNamesAsync();
             }
             catch
             {
