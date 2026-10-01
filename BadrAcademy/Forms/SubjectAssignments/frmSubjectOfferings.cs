@@ -149,7 +149,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "LevelName",
                 DataPropertyName = "LevelName",
                 HeaderText = "المستوى",
-                FillWeight = 15
+                FillWeight = 10
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
@@ -157,7 +157,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "Semester",
                 DataPropertyName = "Semester",
                 HeaderText = "الفصل",
-                FillWeight = 15
+                FillWeight = 10
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
@@ -165,7 +165,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "DepartmentName",
                 DataPropertyName = "DepartmentName",
                 HeaderText = "الشعب",
-                FillWeight = 15
+                FillWeight = 20
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
@@ -173,7 +173,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "SubjectName",
                 DataPropertyName = "SubjectName",
                 HeaderText = "المقرر",
-                FillWeight = 20
+                FillWeight = 25
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn

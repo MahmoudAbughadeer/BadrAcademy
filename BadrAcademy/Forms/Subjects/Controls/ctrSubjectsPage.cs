@@ -11,14 +11,6 @@ namespace BadrAcademy.Forms.Subjects.Controls
     public partial class ctrSubjectsPage : UserControl
     {
         //Private fields
-        private int _currentPage = 1;
-
-        private const int _pageSize = 20;
-
-        private bool _isLoading = false;
-
-        private bool _hasMoreData = true;
-
         private BindingSource _bindingSource = new BindingSource();
 
 
@@ -30,16 +22,6 @@ namespace BadrAcademy.Forms.Subjects.Controls
 
 
         //DataGridView Events
-        private async void dgvSubjects_Scroll(object sender, ScrollEventArgs e)
-        {
-            if (_isLoading || !_hasMoreData)
-                return;
-
-            if (IsNearBottom())
-                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadNextPageAsync);
-               
-        }
-
         private void dgvSubjects_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             /*
@@ -58,19 +40,6 @@ namespace BadrAcademy.Forms.Subjects.Controls
             dgvSubjects.Rows[e.RowIndex].Cells["RowNumber"].Value = e.RowIndex + 1;
         }
 
-        private void dgvSubjects_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete && dgvSubjects.CurrentRow != null && !dgvSubjects.CurrentRow.IsNewRow)
-                btnDelete_Click(null, null);
-            else if (e.KeyCode == Keys.Enter)
-            {
-                btnSave.PerformClick();
-                e.Handled = true;
-            }
-        }
-
-
-
         //Events
         private async void ctrSubjectsPage_Load(object sender, EventArgs e)
         {
@@ -87,61 +56,22 @@ namespace BadrAcademy.Forms.Subjects.Controls
 
 
 
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectsDataAsync);
         }
 
 
         //Private Methods
-        private async Task LoadFirstPageAsync()
+        private async Task LoadSubjectsDataAsync()
         {
-            _currentPage = 1;
-            _hasMoreData = true;
             _bindingSource.DataSource = null;
 
 
             DataTable subjects = await clsSubject.GetAllAsync();
 
             _bindingSource.DataSource = subjects;
-            dgvSubjects.DataSource = _bindingSource;
-            _hasMoreData = subjects.Rows.Count == _pageSize;     
+            dgvSubjects.DataSource = _bindingSource;  
 
             clsButtonHelper.SetEditDelteButtonsState(dgvSubjects, btnEdit, btnDelete);
-
-
-            //To load more pages if there is more space in grid view
-            while (clsDataGridViewHelper.HasEmptyVisibleArea(dgvSubjects) && _hasMoreData)
-                await LoadNextPageAsync();
-
-        }
-
-        private bool IsNearBottom()
-        {
-            //returns how many rows are currently visible in the DataGridView viewport.
-            int displayRows = dgvSubjects.DisplayedRowCount(false);
-
-            //gives the index of the first row currently visible at the top of the viewport.
-            //Example: if the user scrolled down so row 21 is at the top, firstRow = 20 (0-based index)
-            int firstDisplayRowIndex = dgvSubjects.FirstDisplayedScrollingRowIndex;
-
-            int totalRows = dgvSubjects.RowCount;
-
-            return displayRows + firstDisplayRowIndex >= totalRows - 2;
-        }
-
-        private async Task LoadNextPageAsync()
-        {
-            _isLoading = true;
-            _currentPage++;
-
-            DataTable newSubjects = await clsSubject.GetAllAsync();
-            
-            if (_bindingSource.DataSource is DataTable existingTable)
-                foreach (DataRow row in newSubjects.Rows)
-                    existingTable.ImportRow(row);
-
-            _hasMoreData = newSubjects.Rows.Count == _pageSize;
-            _isLoading = false;
-
         }
 
         private void InitializeDataGridViewColumns()
@@ -212,34 +142,15 @@ namespace BadrAcademy.Forms.Subjects.Controls
 
 
             //to load more data after filter if there is more space in grid view
-            while (clsDataGridViewHelper.HasEmptyVisibleArea(dgvSubjects) && _hasMoreData)
-                await LoadNextPageAsync();
+            await LoadSubjectsDataAsync();
         }
 
         private async Task AddEditSubject_SaveCompletedAsync()
         {
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectsDataAsync);
         }
 
-        private async Task<bool> SaveNewRowAsync(DataRow row)
-        {
-            string subjectName = row["SubjectName"]?.ToString();
-
-            clsSubject subject = new clsSubject(subjectName);
-            return await subject.SaveAsync();
-        }
-
-        private async Task<bool> UpdateRowAsync(DataRow row)
-        {
-            int subjectId = Convert.ToInt32(row["SubjectID"]);
-            string subjectName = row["SubjectName"]?.ToString();
-
-            // No extra DB call needed
-            clsSubject subject = clsSubject.CreateForUpdate(subjectId, subjectName);
-            return await subject.SaveAsync();
-        }
-
-
+      
         //Buttons Events
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -269,62 +180,11 @@ namespace BadrAcademy.Forms.Subjects.Controls
 
             if (await clsAsyncMethodExecutor.RunWithWaitAsync<bool>(ctrWait1, () => clsSubject.DeleteAsync(currentSubjectID)))
             {
-                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadSubjectsDataAsync);
                 clsMessageBoxHelper.ShowInfo("تم حذف بيانات المقرر");         
             }
             else
                 clsMessageBoxHelper.ShowError("حدث خطأ عند محاولة حذف بيانات المقرر");
-
-        }
-
-        private async void btnSave_Click(object sender, EventArgs e)
-        {
-            // 1. Commit any active edit first
-            dgvSubjects.EndEdit();
-
-
-
-            // 2. Get the underlying DataTable
-            DataTable dt = _bindingSource.DataSource as DataTable;
-            if (dt == null)
-                return;
-
-            DataTable changes = dt.GetChanges();
-
-            if (changes == null || changes.Rows.Count == 0)
-            {
-                clsMessageBoxHelper.ShowWarning("لم يتم إجراء اى تعديلات");
-                return;
-            }
-
-            bool allSuccess = true;
-            bool success = false;
-
-            foreach (DataRow row in changes.Rows)
-            {
-
-                switch (row.RowState)
-                {
-                    case DataRowState.Added:
-                        success = await clsAsyncMethodExecutor.RunWithWaitAsync<bool>(ctrWait1, () => SaveNewRowAsync(row));
-                        break;
-
-                    case DataRowState.Modified:
-                        success = await clsAsyncMethodExecutor.RunWithWaitAsync<bool>(ctrWait1, () => UpdateRowAsync(row));
-                        break;
-                }
-
-                if (!success)
-                    allSuccess = false;
-            }
-
-            if (allSuccess)
-            {
-                await LoadFirstPageAsync();
-                clsMessageBoxHelper.ShowInfo("تم الحفظ بنجاح");
-            }           
-            else
-                clsMessageBoxHelper.ShowError("حدث خطأ أثناء الحفظ");
 
         }
 
