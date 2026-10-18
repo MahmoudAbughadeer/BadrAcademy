@@ -224,7 +224,38 @@ namespace DAL
                     await conn.OpenAsync();
 
                     using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
-                        dt.Load(reader);
+                    {
+                        dt.Columns.Add("ExamID", typeof(int));
+                        dt.Columns.Add("SettingID", typeof(int));
+                        dt.Columns.Add("OfferingID", typeof(int));
+                        dt.Columns.Add("LevelName", typeof(string));
+                        dt.Columns.Add("DepartmentName", typeof(string));
+                        dt.Columns.Add("SubjectName", typeof(string));
+                        dt.Columns.Add("DoctorName", typeof(string));
+                        dt.Columns.Add("ExamDate", typeof(string));
+                        dt.Columns.Add("ExamDayName", typeof(string));
+                        dt.Columns.Add("TimeFrom", typeof(string));
+                        dt.Columns.Add("TimeTo", typeof(string));
+                        dt.Columns.Add("Period", typeof(string));
+
+                        while (await reader.ReadAsync())
+                        {
+                            dt.Rows.Add(
+                                reader.GetInt32(0),
+                                reader.GetInt32(1),
+                                reader.GetInt32(2),
+                                reader.GetString(3),
+                                reader.GetString(4),
+                                reader.GetString(5),
+                                reader.GetString(6),
+                                reader.GetString(7),
+                                reader.GetString(8),
+                                reader.GetString(9),
+                                reader.GetString(10),
+                                reader.GetString(11)
+                            );
+                        }
+                    }
                 }
             }
             catch (Exception ex)
