@@ -119,6 +119,18 @@
     <Compile Include="Forms\Doctors\frmAddEditDoctor.Designer.cs">
       <DependentUpon>frmAddEditDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ExamSchedule\Controls\ctrExamSchedulePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ExamSchedule\Controls\ctrExamSchedulePage.Designer.cs">
+      <DependentUpon>ctrExamSchedulePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExamSchedule\frmAddEditExamSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExamSchedule\frmAddEditExamSchedule.Designer.cs">
+      <DependentUpon>frmAddEditExamSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Halls\Controls\ctrHallsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     </Compile>
     <Compile Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingsPage.Designer.cs">
       <DependentUpon>ctrSubjectOfferingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingCard.Designer.cs">
+      <DependentUpon>ctrSubjectOfferingCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SubjectAssignments\frmSubjectOfferings.cs">
       <SubType>Form</SubType>
@@ -249,6 +267,12 @@
     <EmbeddedResource Include="Forms\Doctors\frmAddEditDoctor.resx">
       <DependentUpon>frmAddEditDoctor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExamSchedule\Controls\ctrExamSchedulePage.resx">
+      <DependentUpon>ctrExamSchedulePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExamSchedule\frmAddEditExamSchedule.resx">
+      <DependentUpon>frmAddEditExamSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Halls\Controls\ctrHallsPage.resx">
       <DependentUpon>ctrHallsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingsPage.resx">
       <DependentUpon>ctrSubjectOfferingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubjectAssignments\Controls\ctrSubjectOfferingCard.resx">
+      <DependentUpon>ctrSubjectOfferingCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SubjectAssignments\frmSubjectOfferings.resx">
       <DependentUpon>frmSubjectOfferings.cs</DependentUpon>
@@ -332,6 +359,10 @@
       <Project>{0682716d-19ed-423b-b244-c52905cce08e}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{26143ffb-db57-409a-9fac-11dbe7d1bbf4}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\userWhite64.png" />
@@ -357,8 +388,10 @@
     <None Include="Resources\doctorWhile32.png" />
     <None Include="Resources\department32.png" />
     <Content Include="Resources\edit32.png" />
+    <None Include="Resources\exam128.png" />
     <Content Include="Resources\expense 128.png" />
     <Content Include="Resources\expenses32.png" />
+    <None Include="Resources\genders32.png" />
     <Content Include="Resources\GreenSpinner92.gif" />
     <None Include="Resources\HallsWhite32.png" />
     <None Include="Resources\hall32.png" />

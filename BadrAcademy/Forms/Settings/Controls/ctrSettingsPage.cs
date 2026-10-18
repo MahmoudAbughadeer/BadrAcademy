@@ -11,13 +11,6 @@ namespace BadrAcademy.Forms.Settings.Controls
     public partial class ctrSettingsPage : UserControl
     {
         //Private fields
-        private int _currentPage = 1;
-
-        private const int _pageSize = 20;
-
-        private bool _isLoading = false;
-
-        private bool _hasMoreData = true;
 
         private BindingSource _bindingSource = new BindingSource();
 
@@ -30,15 +23,7 @@ namespace BadrAcademy.Forms.Settings.Controls
 
 
         //DataGridView Events
-        private async void dgvSettings_Scroll(object sender, ScrollEventArgs e)
-        {
-            if (_isLoading || !_hasMoreData)
-                return;
-
-            if (IsNearBottom())
-                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadNextPageAsync);
-               
-        }
+      
        
         private void dgvSettings_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -56,63 +41,22 @@ namespace BadrAcademy.Forms.Settings.Controls
             dgvSettigns.RowTemplate.Height = 35;
             dgvSettigns.DefaultCellStyle.Padding = new Padding(5);
 
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadDataAsync);
         }
 
 
         //Private Methods
-        private async Task LoadFirstPageAsync()
+        private async Task LoadDataAsync()
         {
-            _currentPage = 1;
-            _hasMoreData = true;
             _bindingSource.DataSource = null;
 
-
-            DataTable settings = await clsSetting.GetAllAsync(_currentPage, _pageSize);
+            DataTable settings = await clsSetting.GetAllAsync();
 
             _bindingSource.DataSource = settings;
             dgvSettigns.DataSource = _bindingSource;
-            _hasMoreData = settings.Rows.Count == _pageSize;     
-
             clsButtonHelper.SetEditDelteButtonsState(dgvSettigns, btnEdit, btnDelete);
-
-
-            //To load more pages if there is more space in grid view
-            while (clsDataGridViewHelper.HasEmptyVisibleArea(dgvSettigns) && _hasMoreData)
-                await LoadNextPageAsync();
-
         }
 
-        private bool IsNearBottom()
-        {
-            //returns how many rows are currently visible in the DataGridView viewport.
-            int displayRows = dgvSettigns.DisplayedRowCount(false);
-
-            //gives the index of the first row currently visible at the top of the viewport.
-            //Example: if the user scrolled down so row 21 is at the top, firstRow = 20 (0-based index)
-            int firstDisplayRowIndex = dgvSettigns.FirstDisplayedScrollingRowIndex;
-
-            int totalRows = dgvSettigns.RowCount;
-
-            return displayRows + firstDisplayRowIndex >= totalRows - 2;
-        }
-
-        private async Task LoadNextPageAsync()
-        {
-            _isLoading = true;
-            _currentPage++;
-
-            DataTable newSettings = await clsSetting.GetAllAsync(_currentPage, _pageSize);
-
-            if (_bindingSource.DataSource is DataTable existingTable)
-                foreach (DataRow row in newSettings.Rows)
-                    existingTable.ImportRow(row);
-
-            _hasMoreData = newSettings.Rows.Count == _pageSize;
-            _isLoading = false;
-
-        }
-       
         private void InitializeDataGrideViewColumns()
         {
             dgvSettigns.Columns.Add(new DataGridViewTextBoxColumn
@@ -170,7 +114,7 @@ namespace BadrAcademy.Forms.Settings.Controls
       
         private async Task AddEditSetting_SaveCompletedAsync()
         {
-            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+            await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadDataAsync);
         }
 
 
@@ -204,7 +148,7 @@ namespace BadrAcademy.Forms.Settings.Controls
 
             if (await clsAsyncMethodExecutor.RunWithWaitAsync<bool>(ctrWait1, () => clsSetting.DeleteAsync(currentSettingsID)))
             {
-                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadFirstPageAsync);
+                await clsAsyncMethodExecutor.RunWithWaitAsync(ctrWait1, LoadDataAsync);
                 clsMessageBoxHelper.ShowInfo("تم حذف بيانات الاعداد");         
             }
             else

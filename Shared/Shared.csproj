@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Models\clsDepartmentDto.cs" />
     <Compile Include="Models\clsDoctorDto.cs" />
+    <Compile Include="Models\clsExamScheduleDto.cs" />
     <Compile Include="Models\clsHallDto.cs" />
     <Compile Include="Models\clsLevelDto.cs" />
+    <Compile Include="Models\clsOfferingDetailsDto.cs" />
     <Compile Include="Models\clsSettingDto.cs" />
     <Compile Include="Models\clsSubjectDto.cs" />
     <Compile Include="Models\clsSubjectOfferingDto.cs" />

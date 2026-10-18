@@ -113,6 +113,59 @@ namespace DAL
             }
         }
 
+        public static async Task<clsOfferingDetailsDto> GetByOfferingIdWithNamesAsync(int? offeringID)
+        {
+            try
+            {
+                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
+                using (SqliteCommand cmd = new SqliteCommand(@"
+                    SELECT
+                        so.OfferingID,
+                        s.SubjectName,
+                        lv.LevelName,
+                        dp.DepartmentName,
+                        d.DoctorName,
+                        so.Semester,
+                        EXISTS (SELECT 1 FROM ExamSchedule e WHERE e.OfferingID = so.OfferingID) AS HasExam
+                    FROM SubjectOfferings so
+                    JOIN Subjects s     ON s.SubjectID       = so.SubjectID
+                    JOIN Levels lv      ON lv.LevelID        = so.LevelID
+                    JOIN Departments dp ON dp.DepartmentID   = so.DepartmentID
+                    JOIN Doctors d      ON d.DoctorID        = so.DoctorID
+                    WHERE so.OfferingID = @OfferingID
+                    ORDER BY so.OfferingID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@OfferingID", offeringID);
+
+                    await conn.OpenAsync();
+
+                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            return new clsOfferingDetailsDto()
+                            {
+                                OfferingID = Convert.ToInt32(reader["OfferingID"]),
+                                SubjectName = reader["SubjectName"].ToString(),
+                                LevelName = reader["LevelName"].ToString(),
+                                DepartmentName = reader["DepartmentName"].ToString(),
+                                DoctorName = reader["DoctorName"].ToString(),
+                                Semester = reader["Semester"].ToString(),
+                                HasExam = Convert.ToBoolean(reader["HasExam"])
+                            };
+                        }
+
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsLogger.LogError(ex.ToString());
+                throw;
+            }
+        }
+
         public static async Task<DataTable> GetAllWithNamesAsync()
         {
             DataTable dt = new DataTable();
@@ -127,12 +180,13 @@ namespace DAL
                         lv.LevelName,
                         dp.DepartmentName,
                         d.DoctorName,
-                        so.Semester
+                        so.Semester,
+                        EXISTS (SELECT 1 FROM ExamSchedule e WHERE e.OfferingID = so.OfferingID) AS HasExam
                     FROM SubjectOfferings so
                     JOIN Subjects s     ON s.SubjectID       = so.SubjectID
                     JOIN Levels lv      ON lv.LevelID        = so.LevelID
                     JOIN Departments dp ON dp.DepartmentID   = so.DepartmentID
-                    JOIN Doctors d      ON d.DoctorID        = so.DepartmentID
+                    JOIN Doctors d      ON d.DoctorID        = so.DoctorID
                     ORDER BY so.OfferingID", conn))
                 {
                     await conn.OpenAsync();
@@ -145,6 +199,7 @@ namespace DAL
                         dt.Columns.Add("DepartmentName", typeof(string));
                         dt.Columns.Add("DoctorName", typeof(string));
                         dt.Columns.Add("Semester", typeof(string));
+                        dt.Columns.Add("HasExam", typeof(bool));
 
                         while(await reader.ReadAsync())
                         {
@@ -154,7 +209,9 @@ namespace DAL
                                 reader.GetString(2),
                                 reader.GetString(3),
                                 reader.GetString(4),
-                                reader.GetString(5)
+                                reader.GetString(5),
+                                reader.GetBoolean(6)
+
                                 );
                         }
                     }

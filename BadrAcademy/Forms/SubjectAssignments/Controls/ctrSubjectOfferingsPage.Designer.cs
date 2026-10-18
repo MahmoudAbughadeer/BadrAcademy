@@ -380,9 +380,10 @@
             this.dgvSubjectOfferings.ReadOnly = true;
             this.dgvSubjectOfferings.RowHeadersWidth = 51;
             this.dgvSubjectOfferings.RowTemplate.Height = 24;
-            this.dgvSubjectOfferings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSubjectOfferings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvSubjectOfferings.Size = new System.Drawing.Size(1247, 425);
             this.dgvSubjectOfferings.TabIndex = 8;
+            this.dgvSubjectOfferings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubjectOfferings_CellClick);
             this.dgvSubjectOfferings.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvSubjectOfferings_RowPostPaint);
             // 
             // ctrSubjectOfferingsPage

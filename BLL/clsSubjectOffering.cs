@@ -114,7 +114,17 @@ namespace BLL
             }
         }
 
-       
+        public static async Task<clsOfferingDetailsDto> FindWithNamesAsync(int? offeringID)
+        {
+            try
+            {
+                return await clsSubjectOfferingData.GetByOfferingIdWithNamesAsync(offeringID);
+            }
+            catch
+            {
+                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
+            }
+        }
         public static async Task<DataTable> GetAllWithNamesAsync()
         {
             try

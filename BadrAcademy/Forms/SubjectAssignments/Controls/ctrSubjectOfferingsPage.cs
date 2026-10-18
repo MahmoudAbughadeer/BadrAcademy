@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BadrAcademy.Forms.ExamSchedule;
 
 namespace BadrAcademy.Forms.SubjectAssignments.Controls
 {
@@ -25,7 +26,51 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
          
         private void dgvSubjectOfferings_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            dgvSubjectOfferings.Rows[e.RowIndex].Cells["RowNumber"].Value = e.RowIndex + 1;
+            var row = dgvSubjectOfferings.Rows[e.RowIndex];
+
+            row.Cells["RowNumber"].Value = e.RowIndex + 1;
+
+            if (Convert.ToBoolean(row.Cells["HasExam"].Value))
+                row.DefaultCellStyle.BackColor = Color.LightGreen;
+            else
+                row.DefaultCellStyle.BackColor = Color.Empty;
+        }
+
+        private async void dgvSubjectOfferings_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (dgvSubjectOfferings.Columns[e.ColumnIndex].Name == "AddEditExamSchedule")
+            {
+                int offeringId = clsDataGridViewHelper.GetCellValueAsInt(dgvSubjectOfferings, "OfferingID");
+                object value = dgvSubjectOfferings.Rows[e.RowIndex].Cells["HasExam"].Value;
+                bool hasExam = Convert.ToBoolean(value);
+
+                frmAddEditExamSchedule frm = new frmAddEditExamSchedule(offeringId, hasExam);
+                frm.SaveCompleted += frmSubjectOfferings_SaveCompletedAsync;
+                frm.ShowDialog();
+            }
+
+            if (dgvSubjectOfferings.Columns[e.ColumnIndex].Name == "DeleteExamSchedule")
+            {
+                int offeringId = clsDataGridViewHelper.GetCellValueAsInt(dgvSubjectOfferings, "OfferingID");
+                DialogResult dialogResult = MessageBox.Show
+                    (
+                        "هل تريد حذف جدول امتحان هذه المادة؟",
+                        "",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning,
+                        MessageBoxDefaultButton.Button1
+                    );
+
+                if (dialogResult == DialogResult.No)
+                    return;
+                
+                bool deletetionSuccess = await clsExamSchedule.DeleteByOfferingIDAsync(offeringId);
+                await LoadSubjectOfferingsDataAsync();
+            }
+
         }
 
         //Events
@@ -90,9 +135,25 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
             dgvSubjectOfferings.DataSource = _bindingSource;
         }
 
- 
         private void InitializeDataGrideViewColumns()
         {
+
+            dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "OfferingID",
+                DataPropertyName = "OfferingID",
+                HeaderText = "المعرف",
+                Visible = false,
+            });
+
+            dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "HasExam",
+                DataPropertyName = "HasExam",
+                HeaderText = "الامتحان",
+                Visible = false
+            });
+
             dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "RowNumber",
@@ -101,14 +162,6 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 FillWeight = 10,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.NotSortable
-            });
-
-            dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "OfferingID",
-                DataPropertyName = "OfferingID",
-                HeaderText = "المعرف",
-                Visible = false,
             });
 
             dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
@@ -124,7 +177,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "LevelName",
                 DataPropertyName = "LevelName",
                 HeaderText = "المستوى",
-                FillWeight = 20
+                FillWeight = 13
             });
 
 
@@ -150,6 +203,26 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 DataPropertyName = "Semester",
                 HeaderText = "التيرم",
                 FillWeight = 10
+            });
+
+            dgvSubjectOfferings.Columns.Add(new DataGridViewButtonColumn
+            {
+                Name = "AddEditExamSchedule",
+                HeaderText = "",
+                Text = "📝",
+                UseColumnTextForButtonValue = true,
+                FlatStyle = FlatStyle.Flat,
+                FillWeight = 4
+            });
+
+            dgvSubjectOfferings.Columns.Add(new DataGridViewButtonColumn
+            {
+                Name = "DeleteExamSchedule",
+                HeaderText = "",
+                Text = "X",
+                UseColumnTextForButtonValue = true,
+                FlatStyle = FlatStyle.Flat,
+                FillWeight = 3
             });
         }
         
@@ -187,5 +260,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
         {
             ApplyFilter();
         }
+
+        
     }
 }

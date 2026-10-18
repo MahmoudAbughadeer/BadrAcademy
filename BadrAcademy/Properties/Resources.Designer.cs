@@ -263,6 +263,26 @@ namespace BadrAcademy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exam128 {
+            get {
+                object obj = ResourceManager.GetObject("exam128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap genders32 {
+            get {
+                object obj = ResourceManager.GetObject("genders32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GreenSpinner92 {
             get {
                 object obj = ResourceManager.GetObject("GreenSpinner92", resourceCulture);

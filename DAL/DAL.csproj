@@ -93,6 +93,7 @@
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsDepartmentData.cs" />
     <Compile Include="clsDoctorData.cs" />
+    <Compile Include="clsExamScheduleData.cs" />
     <Compile Include="clsHallData.cs" />
     <Compile Include="clsLevelData.cs" />
     <Compile Include="clsSettingData.cs" />

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsDoctor.cs" />
+    <Compile Include="clsExamSchedule.cs" />
     <Compile Include="clsHall.cs" />
     <Compile Include="clsLevel.cs" />
     <Compile Include="clsSetting.cs" />
