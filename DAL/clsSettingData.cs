@@ -109,7 +109,8 @@ namespace DAL
             }
         }
 
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
+        
+        public static async Task<DataTable> GetAllAsync()
         {
             DataTable dt = new DataTable();
 
@@ -119,13 +120,36 @@ namespace DAL
                 using (SqliteCommand cmd = new SqliteCommand(@"
                     SELECT SettingID, AcademicYear, Semester, SemesterType, DefaultAnswerForms
                     FROM Settings
-                    ORDER BY SettingID
-                    LIMIT @RowsPerPage OFFSET @Offset;", conn))
+                    ORDER BY SettingID", conn))
                 {
-                    int offset = (pageNumber - 1) * rowsPerPage;
-                    cmd.Parameters.AddWithValue("@RowsPerPage", rowsPerPage);
-                    cmd.Parameters.AddWithValue("@Offset", offset);
+                    await conn.OpenAsync();
 
+                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
+                        dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsLogger.LogError(ex.ToString());
+                throw;
+            }
+
+            return dt;
+        }
+
+        public static async Task<DataTable> GetAllForComboBoxAsync()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
+                using (SqliteCommand cmd = new SqliteCommand(@"
+                    SELECT SettingID,
+                    SemesterType || ' - ' || Semester || ' - ' || AcademicYear AS SettingDetails
+                    FROM Settings
+                    ORDER BY SettingID", conn))
+                {
                     await conn.OpenAsync();
 
                     using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())

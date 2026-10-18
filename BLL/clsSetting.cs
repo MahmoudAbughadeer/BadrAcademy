@@ -113,11 +113,23 @@ namespace BLL
 
         }
 
-        public static async Task<DataTable> GetAllAsync(int pageNumber, int rowsPerPage)
+        public static async Task<DataTable> GetAllAsync()
         {
             try
             {
-                return await clsSettingData.GetAllAsync(pageNumber, rowsPerPage);
+                return await clsSettingData.GetAllAsync();
+            }
+            catch
+            {
+                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
+            }
+        }
+
+        public static async Task<DataTable> GetAllForComboBoxAsync()
+        {
+            try
+            {
+                return await clsSettingData.GetAllForComboBoxAsync();
             }
             catch
             {

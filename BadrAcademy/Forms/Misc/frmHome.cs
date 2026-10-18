@@ -79,7 +79,7 @@ namespace BadrAcademy.Forms.Misc
 
         private void tsmiExamScchedule_Click(object sender, EventArgs e)
         {
-
+            OpenPage(new ctrExamSchedulePage());
         }
 
         private void tsmiDistributions_Click(object sender, EventArgs e)

@@ -148,6 +148,9 @@
   <data name="setting321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="teacher32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teacher32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="name321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\name321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,6 +205,9 @@
   <data name="add32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="genders32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\genders32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="phone32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -232,9 +238,6 @@
   <data name="doctorWhile32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doctorWhile32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DistributionsWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DistributionsWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="password-manager128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password-manager128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,6 +259,9 @@
   <data name="number32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\number32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UserInfo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserInfo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ChangePasswordWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChangePasswordWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -265,8 +271,8 @@
   <data name="logout32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserInfo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserInfo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DistributionsWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DistributionsWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,7 +325,7 @@
   <data name="changePassword32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\changePassword32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="teacher32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\teacher32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exam128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exam128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
