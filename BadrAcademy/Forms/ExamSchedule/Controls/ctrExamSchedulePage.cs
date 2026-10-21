@@ -110,7 +110,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "LevelName",
                 DataPropertyName = "LevelName",
                 HeaderText = "المستوى",
-                FillWeight = 15
+                FillWeight = 14
             });
 
 
@@ -119,7 +119,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DepartmentName",
                 DataPropertyName = "DepartmentName",
                 HeaderText = "القسم",
-                FillWeight = 15
+                FillWeight = 14
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -127,7 +127,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "SubjectName",
                 DataPropertyName = "SubjectName",
                 HeaderText = "المقرر",
-                FillWeight = 15
+                FillWeight = 14
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -135,7 +135,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DoctorName",
                 DataPropertyName = "DoctorName",
                 HeaderText = "الدكتور",
-                FillWeight = 15
+                FillWeight = 14
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -151,7 +151,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "TimeFrom",
                 DataPropertyName = "TimeFrom",
                 HeaderText = "من",
-                FillWeight = 4
+                FillWeight = 7
             });
 
 
@@ -160,7 +160,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "TimeTo",
                 DataPropertyName = "TimeTo",
                 HeaderText = "الى",
-                FillWeight = 4
+                FillWeight = 7
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -168,7 +168,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "Period",
                 DataPropertyName = "Period",
                 HeaderText = "الفترة",
-                FillWeight = 7
+                FillWeight = 5
             });
         }
         

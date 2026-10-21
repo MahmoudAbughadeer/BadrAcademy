@@ -35,17 +35,14 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ctrWait1 = new BadrAcademy.Forms.Misc.Controls.ctrWait();
-            this.ctrSubjectOfferingCard1 = new BadrAcademy.Forms.SubjectAssignments.Controls.ctrSubjectOfferingCard();
             this.lblOperationTitle = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpTimeTo = new System.Windows.Forms.DateTimePicker();
+            this.dtpTimeFrom = new System.Windows.Forms.DateTimePicker();
             this.cbSettings = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.nudTimeTo = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.nudTimeFrom = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblExamDayName = new System.Windows.Forms.Label();
@@ -58,13 +55,12 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.Period = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.epExamSchedule = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrWait1 = new BadrAcademy.Forms.Misc.Controls.ctrWait();
+            this.ctrSubjectOfferingCard1 = new BadrAcademy.Forms.SubjectAssignments.Controls.ctrSubjectOfferingCard();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTimeTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTimeFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -78,7 +74,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 490);
+            this.panel1.Location = new System.Drawing.Point(0, 521);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(875, 66);
@@ -127,49 +123,23 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.ctrWait1);
-            this.panel2.Controls.Add(this.ctrSubjectOfferingCard1);
             this.panel2.Controls.Add(this.lblOperationTitle);
             this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.ctrSubjectOfferingCard1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(875, 490);
+            this.panel2.Size = new System.Drawing.Size(875, 521);
             this.panel2.TabIndex = 29;
-            // 
-            // ctrWait1
-            // 
-            this.ctrWait1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrWait1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrWait1.Location = new System.Drawing.Point(260, 189);
-            this.ctrWait1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrWait1.Name = "ctrWait1";
-            this.ctrWait1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrWait1.Size = new System.Drawing.Size(354, 113);
-            this.ctrWait1.SpinnerColor = BadrAcademy.Forms.Misc.Controls.ctrWait.enSpinnerColor.Black;
-            this.ctrWait1.TabIndex = 58;
-            this.ctrWait1.Visible = false;
-            // 
-            // ctrSubjectOfferingCard1
-            // 
-            this.ctrSubjectOfferingCard1.BackColor = System.Drawing.Color.White;
-            this.ctrSubjectOfferingCard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrSubjectOfferingCard1.Location = new System.Drawing.Point(26, 53);
-            this.ctrSubjectOfferingCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ctrSubjectOfferingCard1.Name = "ctrSubjectOfferingCard1";
-            this.ctrSubjectOfferingCard1.OfferingDetail = null;
-            this.ctrSubjectOfferingCard1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrSubjectOfferingCard1.Size = new System.Drawing.Size(823, 200);
-            this.ctrSubjectOfferingCard1.TabIndex = 61;
             // 
             // lblOperationTitle
             // 
             this.lblOperationTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOperationTitle.Font = new System.Drawing.Font("Segoe UI", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperationTitle.Location = new System.Drawing.Point(223, 0);
+            this.lblOperationTitle.Location = new System.Drawing.Point(237, 9);
             this.lblOperationTitle.Name = "lblOperationTitle";
             this.lblOperationTitle.Size = new System.Drawing.Size(429, 46);
             this.lblOperationTitle.TabIndex = 51;
@@ -178,13 +148,13 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ctrWait1);
+            this.groupBox2.Controls.Add(this.dtpTimeTo);
+            this.groupBox2.Controls.Add(this.dtpTimeFrom);
             this.groupBox2.Controls.Add(this.cbSettings);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.nudTimeTo);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.pictureBox5);
-            this.groupBox2.Controls.Add(this.nudTimeFrom);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Controls.Add(this.lblExamDayName);
@@ -200,10 +170,32 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(823, 213);
+            this.groupBox2.Size = new System.Drawing.Size(823, 243);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "بيانات جدول الامتحان";
+            // 
+            // dtpTimeTo
+            // 
+            this.dtpTimeTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTimeTo.CustomFormat = "hh:mm tt";
+            this.dtpTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTimeTo.Location = new System.Drawing.Point(8, 64);
+            this.dtpTimeTo.Name = "dtpTimeTo";
+            this.dtpTimeTo.ShowUpDown = true;
+            this.dtpTimeTo.Size = new System.Drawing.Size(110, 34);
+            this.dtpTimeTo.TabIndex = 79;
+            // 
+            // dtpTimeFrom
+            // 
+            this.dtpTimeFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTimeFrom.CustomFormat = "hh:mm tt";
+            this.dtpTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTimeFrom.Location = new System.Drawing.Point(197, 64);
+            this.dtpTimeFrom.Name = "dtpTimeFrom";
+            this.dtpTimeFrom.ShowUpDown = true;
+            this.dtpTimeFrom.Size = new System.Drawing.Size(112, 34);
+            this.dtpTimeFrom.TabIndex = 78;
             // 
             // cbSettings
             // 
@@ -214,29 +206,29 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.cbSettings.Items.AddRange(new object[] {
             "الأولى",
             "الثانية"});
-            this.cbSettings.Location = new System.Drawing.Point(14, 157);
+            this.cbSettings.Location = new System.Drawing.Point(8, 176);
             this.cbSettings.Margin = new System.Windows.Forms.Padding(4);
             this.cbSettings.Name = "cbSettings";
-            this.cbSettings.Size = new System.Drawing.Size(602, 44);
+            this.cbSettings.Size = new System.Drawing.Size(646, 44);
             this.cbSettings.TabIndex = 75;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(664, 158);
+            this.label1.Location = new System.Drawing.Point(714, 157);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 36);
+            this.label1.Size = new System.Drawing.Size(122, 81);
             this.label1.TabIndex = 76;
-            this.label1.Text = "العام الدراسى:";
+            this.label1.Text = "العام الدراسى";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::BadrAcademy.Properties.Resources.date32;
-            this.pictureBox1.Location = new System.Drawing.Point(624, 160);
+            this.pictureBox1.Location = new System.Drawing.Point(677, 188);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
@@ -244,82 +236,24 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.pictureBox1.TabIndex = 77;
             this.pictureBox1.TabStop = false;
             // 
-            // nudTimeTo
-            // 
-            this.nudTimeTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudTimeTo.Location = new System.Drawing.Point(14, 56);
-            this.nudTimeTo.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudTimeTo.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudTimeTo.Name = "nudTimeTo";
-            this.nudTimeTo.Size = new System.Drawing.Size(64, 34);
-            this.nudTimeTo.TabIndex = 74;
-            this.nudTimeTo.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(136, 55);
+            this.label6.Location = new System.Drawing.Point(125, 62);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 36);
             this.label6.TabIndex = 72;
             this.label6.Text = "الى:";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Image = global::BadrAcademy.Properties.Resources.number32;
-            this.pictureBox5.Location = new System.Drawing.Point(94, 57);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 73;
-            this.pictureBox5.TabStop = false;
-            // 
-            // nudTimeFrom
-            // 
-            this.nudTimeFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudTimeFrom.Location = new System.Drawing.Point(194, 57);
-            this.nudTimeFrom.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudTimeFrom.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudTimeFrom.Name = "nudTimeFrom";
-            this.nudTimeFrom.Size = new System.Drawing.Size(64, 34);
-            this.nudTimeFrom.TabIndex = 71;
-            this.nudTimeFrom.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(316, 56);
+            this.label2.Location = new System.Drawing.Point(369, 62);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 36);
@@ -330,7 +264,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::BadrAcademy.Properties.Resources.number32;
-            this.pictureBox2.Location = new System.Drawing.Point(274, 58);
+            this.pictureBox2.Location = new System.Drawing.Point(327, 64);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
@@ -343,7 +277,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.lblExamDayName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExamDayName.AutoSize = true;
             this.lblExamDayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExamDayName.Location = new System.Drawing.Point(516, 106);
+            this.lblExamDayName.Location = new System.Drawing.Point(569, 112);
             this.lblExamDayName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExamDayName.Name = "lblExamDayName";
             this.lblExamDayName.Size = new System.Drawing.Size(92, 39);
@@ -354,7 +288,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.dtpExamDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpExamDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpExamDate.Location = new System.Drawing.Point(438, 58);
+            this.dtpExamDate.Location = new System.Drawing.Point(491, 64);
             this.dtpExamDate.Name = "dtpExamDate";
             this.dtpExamDate.Size = new System.Drawing.Size(168, 34);
             this.dtpExamDate.TabIndex = 67;
@@ -376,7 +310,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.Image = global::BadrAcademy.Properties.Resources.date32;
-            this.pictureBox7.Location = new System.Drawing.Point(623, 59);
+            this.pictureBox7.Location = new System.Drawing.Point(676, 65);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(32, 32);
@@ -400,7 +334,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::BadrAcademy.Properties.Resources.name32;
-            this.pictureBox4.Location = new System.Drawing.Point(624, 109);
+            this.pictureBox4.Location = new System.Drawing.Point(677, 115);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 32);
@@ -417,10 +351,10 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.cbPeriod.Items.AddRange(new object[] {
             "الأولى",
             "الثانية"});
-            this.cbPeriod.Location = new System.Drawing.Point(14, 101);
+            this.cbPeriod.Location = new System.Drawing.Point(8, 107);
             this.cbPeriod.Margin = new System.Windows.Forms.Padding(4);
             this.cbPeriod.Name = "cbPeriod";
-            this.cbPeriod.Size = new System.Drawing.Size(242, 44);
+            this.cbPeriod.Size = new System.Drawing.Size(301, 44);
             this.cbPeriod.TabIndex = 1;
             // 
             // Period
@@ -428,7 +362,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.Period.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Period.AutoSize = true;
             this.Period.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Period.Location = new System.Drawing.Point(364, 105);
+            this.Period.Location = new System.Drawing.Point(417, 111);
             this.Period.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Period.Name = "Period";
             this.Period.Size = new System.Drawing.Size(73, 36);
@@ -439,7 +373,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox6.Image = global::BadrAcademy.Properties.Resources.date32;
-            this.pictureBox6.Location = new System.Drawing.Point(272, 107);
+            this.pictureBox6.Location = new System.Drawing.Point(325, 113);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(32, 32);
@@ -451,13 +385,38 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.epExamSchedule.ContainerControl = this;
             // 
+            // ctrWait1
+            // 
+            this.ctrWait1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrWait1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrWait1.Location = new System.Drawing.Point(250, 0);
+            this.ctrWait1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrWait1.Name = "ctrWait1";
+            this.ctrWait1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrWait1.Size = new System.Drawing.Size(354, 113);
+            this.ctrWait1.SpinnerColor = BadrAcademy.Forms.Misc.Controls.ctrWait.enSpinnerColor.Black;
+            this.ctrWait1.TabIndex = 58;
+            this.ctrWait1.Visible = false;
+            // 
+            // ctrSubjectOfferingCard1
+            // 
+            this.ctrSubjectOfferingCard1.BackColor = System.Drawing.Color.White;
+            this.ctrSubjectOfferingCard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrSubjectOfferingCard1.Location = new System.Drawing.Point(26, 53);
+            this.ctrSubjectOfferingCard1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.ctrSubjectOfferingCard1.Name = "ctrSubjectOfferingCard1";
+            this.ctrSubjectOfferingCard1.OfferingDetail = null;
+            this.ctrSubjectOfferingCard1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrSubjectOfferingCard1.Size = new System.Drawing.Size(823, 200);
+            this.ctrSubjectOfferingCard1.TabIndex = 61;
+            // 
             // frmAddEditExamSchedule
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(875, 556);
+            this.ClientSize = new System.Drawing.Size(875, 587);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -475,9 +434,6 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTimeTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTimeFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -497,9 +453,6 @@ namespace BadrAcademy.Forms.ExamSchedule
         private System.Windows.Forms.ErrorProvider epExamSchedule;
         private Forms.Misc.Controls.ctrWait ctrWait1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.NumericUpDown nudTimeTo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown nudTimeFrom;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblExamDayName;
@@ -515,7 +468,9 @@ namespace BadrAcademy.Forms.ExamSchedule
         private System.Windows.Forms.ComboBox cbSettings;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.DateTimePicker dtpTimeFrom;
+        private System.Windows.Forms.DateTimePicker dtpTimeTo;
+        private System.Windows.Forms.Label label6;
     }
 }
 
