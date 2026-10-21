@@ -66,8 +66,8 @@ namespace BadrAcademy.Forms.ExamSchedule
             
             string examDayName = lblExamDayName.Text.Trim();
             DateTime examDate = dtpExamDate.Value;
-            float timeFrom = Convert.ToSingle(nudTimeFrom.Value);
-            float timeTo = Convert.ToSingle(nudTimeTo.Value);
+            DateTime timeFrom = dtpTimeFrom.Value;
+            DateTime timeTo = dtpTimeTo.Value;
             string period = cbPeriod.Text;
             int settingID = Convert.ToInt32(cbSettings.SelectedValue);
 
@@ -90,9 +90,9 @@ namespace BadrAcademy.Forms.ExamSchedule
         {
             lblExamDayName.Text = _examSchedule.ExamDayName;
             dtpExamDate.Value = _examSchedule.ExamDate;
-            nudTimeFrom.Value = Convert.ToDecimal(_examSchedule.TimeFrom);
-            nudTimeTo.Value = Convert.ToDecimal(_examSchedule.TimeTo);
-            cbPeriod.SelectedText = _examSchedule.Period;
+            dtpTimeFrom.Value = _examSchedule.TimeFrom;
+            dtpTimeTo.Value = _examSchedule.TimeTo;
+            cbPeriod.Text = _examSchedule.Period;
             cbSettings.SelectedValue = _examSchedule.SettingID;
             
         }
@@ -107,8 +107,8 @@ namespace BadrAcademy.Forms.ExamSchedule
             return
                 _examSchedule.ExamDayName.Trim() != lblExamDayName.Text.Trim() ||
                 _examSchedule.ExamDate != dtpExamDate.Value ||
-                _examSchedule.TimeFrom != Convert.ToSingle(nudTimeFrom.Value) ||
-                _examSchedule.TimeTo != Convert.ToSingle(nudTimeTo.Value) ||
+                _examSchedule.TimeFrom != dtpTimeFrom.Value ||
+                _examSchedule.TimeTo != dtpTimeTo.Value ||
                 _examSchedule.Period != cbPeriod.Text ||
                 _examSchedule.SettingID != Convert.ToInt32(cbSettings.SelectedValue);
         }
@@ -159,6 +159,8 @@ namespace BadrAcademy.Forms.ExamSchedule
         {
             lblExamDayName.Text = GetDayNameByDate(dtpExamDate.Value);
         }
+    
+    
     }
 }
 
