@@ -2,6 +2,7 @@
 using BadrAcademy.Forms.Doctors.Controls;
 using BadrAcademy.Forms.Halls.Controls;
 using BadrAcademy.Forms.Levels.Controls;
+using BadrAcademy.Forms.DistributionTemplates.Controls;
 using BadrAcademy.Forms.Misc.Controls;
 using BadrAcademy.Forms.Settings.Controls;
 using BadrAcademy.Forms.SubjectAssignments.Controls;
@@ -84,7 +85,7 @@ namespace BadrAcademy.Forms.Misc
 
         private void tsmiDistributions_Click(object sender, EventArgs e)
         {
-
+            OpenPage(new ctrDistributionTemplates());
         }
 
         private void tsmiUsers_Click(object sender, EventArgs e)

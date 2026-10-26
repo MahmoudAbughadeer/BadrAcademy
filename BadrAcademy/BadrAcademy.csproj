@@ -107,6 +107,12 @@
     <Compile Include="Forms\Departments\frmAddEditDepartment.Designer.cs">
       <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DistributionTemplates\Controls\ctrDistributionTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\DistributionTemplates\Controls\ctrDistributionTemplates.Designer.cs">
+      <DependentUpon>ctrDistributionTemplates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Doctors\Controls\ctrDoctorsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Departments\frmAddEditDepartment.resx">
       <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DistributionTemplates\Controls\ctrDistributionTemplates.resx">
+      <DependentUpon>ctrDistributionTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Doctors\Controls\ctrDoctorsPage.resx">
       <DependentUpon>ctrDoctorsPage.cs</DependentUpon>

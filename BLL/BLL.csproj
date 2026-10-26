@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDepartment.cs" />
+    <Compile Include="clsDistributionTemplate.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsExamSchedule.cs" />
     <Compile Include="clsHall.cs" />

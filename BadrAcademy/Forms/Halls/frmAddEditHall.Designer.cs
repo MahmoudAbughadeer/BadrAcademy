@@ -32,6 +32,8 @@ namespace BadrAcademy.Forms.Halls
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblHallID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,30 +42,28 @@ namespace BadrAcademy.Forms.Halls
             this.lblOperationTitle = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ctrWait1 = new BadrAcademy.Forms.Misc.Controls.ctrWait();
-            this.txtHallName = new System.Windows.Forms.TextBox();
-            this.cbHallType = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.epHall = new System.Windows.Forms.ErrorProvider(this.components);
-            this.nDefaultCapacity = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbNotActive = new System.Windows.Forms.RadioButton();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.nDefaultCapacity = new System.Windows.Forms.NumericUpDown();
+            this.txtHallName = new System.Windows.Forms.TextBox();
+            this.cbHallType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.epHall = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epHall)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nDefaultCapacity)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nDefaultCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epHall)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +77,47 @@ namespace BadrAcademy.Forms.Halls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(463, 87);
             this.panel1.TabIndex = 27;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Image = global::BadrAcademy.Properties.Resources.close32;
+            this.btnClose.Location = new System.Drawing.Point(65, 12);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(149, 62);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "اغلاق   ";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Image = global::BadrAcademy.Properties.Resources.save32;
+            this.btnSave.Location = new System.Drawing.Point(251, 12);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(147, 62);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "حفظ   ";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblHallID
             // 
@@ -173,7 +214,7 @@ namespace BadrAcademy.Forms.Halls
             // 
             this.ctrWait1.BackColor = System.Drawing.Color.Transparent;
             this.ctrWait1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrWait1.Location = new System.Drawing.Point(42, 128);
+            this.ctrWait1.Location = new System.Drawing.Point(31, 125);
             this.ctrWait1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrWait1.Name = "ctrWait1";
             this.ctrWait1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -181,57 +222,6 @@ namespace BadrAcademy.Forms.Halls
             this.ctrWait1.SpinnerColor = BadrAcademy.Forms.Misc.Controls.ctrWait.enSpinnerColor.Black;
             this.ctrWait1.TabIndex = 58;
             this.ctrWait1.Visible = false;
-            // 
-            // txtHallName
-            // 
-            this.txtHallName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHallName.Location = new System.Drawing.Point(41, 94);
-            this.txtHallName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHallName.Name = "txtHallName";
-            this.txtHallName.Size = new System.Drawing.Size(192, 41);
-            this.txtHallName.TabIndex = 0;
-            // 
-            // cbHallType
-            // 
-            this.cbHallType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHallType.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbHallType.FormattingEnabled = true;
-            this.cbHallType.Items.AddRange(new object[] {
-            "مدرج",
-            "قاعة",
-            "معمل"});
-            this.cbHallType.Location = new System.Drawing.Point(41, 154);
-            this.cbHallType.Margin = new System.Windows.Forms.Padding(4);
-            this.cbHallType.Name = "cbHallType";
-            this.cbHallType.Size = new System.Drawing.Size(192, 44);
-            this.cbHallType.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(318, 96);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 36);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "الأسم:";
-            // 
-            // epHall
-            // 
-            this.epHall.ContainerControl = this;
-            // 
-            // nDefaultCapacity
-            // 
-            this.nDefaultCapacity.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nDefaultCapacity.Location = new System.Drawing.Point(115, 222);
-            this.nDefaultCapacity.Name = "nDefaultCapacity";
-            this.nDefaultCapacity.Size = new System.Drawing.Size(120, 34);
-            this.nDefaultCapacity.TabIndex = 57;
             // 
             // groupBox1
             // 
@@ -271,46 +261,52 @@ namespace BadrAcademy.Forms.Halls
             this.rbNotActive.Text = "غير مفعل";
             this.rbNotActive.UseVisualStyleBackColor = true;
             // 
-            // btnSave
+            // nDefaultCapacity
             // 
-            this.btnSave.BackColor = System.Drawing.Color.White;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Image = global::BadrAcademy.Properties.Resources.save32;
-            this.btnSave.Location = new System.Drawing.Point(251, 12);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(147, 62);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "حفظ   ";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.nDefaultCapacity.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nDefaultCapacity.Location = new System.Drawing.Point(115, 222);
+            this.nDefaultCapacity.Name = "nDefaultCapacity";
+            this.nDefaultCapacity.Size = new System.Drawing.Size(120, 34);
+            this.nDefaultCapacity.TabIndex = 57;
             // 
-            // btnClose
+            // txtHallName
             // 
-            this.btnClose.BackColor = System.Drawing.Color.White;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Image = global::BadrAcademy.Properties.Resources.close32;
-            this.btnClose.Location = new System.Drawing.Point(65, 12);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(149, 62);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "اغلاق   ";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.txtHallName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHallName.Location = new System.Drawing.Point(41, 94);
+            this.txtHallName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHallName.Name = "txtHallName";
+            this.txtHallName.Size = new System.Drawing.Size(192, 41);
+            this.txtHallName.TabIndex = 0;
+            // 
+            // cbHallType
+            // 
+            this.cbHallType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHallType.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHallType.FormattingEnabled = true;
+            this.cbHallType.Items.AddRange(new object[] {
+            "مدرج",
+            "قاعة",
+            "معمل"});
+            this.cbHallType.Location = new System.Drawing.Point(41, 154);
+            this.cbHallType.Margin = new System.Windows.Forms.Padding(4);
+            this.cbHallType.Name = "cbHallType";
+            this.cbHallType.Size = new System.Drawing.Size(192, 44);
+            this.cbHallType.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(318, 96);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 36);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "الأسم:";
             // 
             // pictureBox2
             // 
@@ -356,6 +352,10 @@ namespace BadrAcademy.Forms.Halls
             this.pictureBox3.TabIndex = 40;
             this.pictureBox3.TabStop = false;
             // 
+            // epHall
+            // 
+            this.epHall.ContainerControl = this;
+            // 
             // frmAddEditHall
             // 
             this.AcceptButton = this.btnSave;
@@ -381,14 +381,14 @@ namespace BadrAcademy.Forms.Halls
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epHall)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nDefaultCapacity)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nDefaultCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epHall)).EndInit();
             this.ResumeLayout(false);
 
         }

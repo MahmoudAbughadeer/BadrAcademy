@@ -21,8 +21,8 @@ namespace BLL
         public int OfferingID { get; set; }
         public string ExamDayName { get; set; }
         public DateTime ExamDate { get; set; }
-        public float TimeFrom { get; set; }
-        public float TimeTo { get; set; }
+        public DateTime TimeFrom { get; set; }
+        public DateTime TimeTo { get; set; }
         public string Period { get; set; }
         public int SettingID { get; set; }
 
@@ -30,7 +30,7 @@ namespace BLL
 
         //Ctor
         public clsExamSchedule(int offeringID, string examDayName, DateTime examDate,
-            float timeFrom, float timeTo, string period, int settingID)
+            DateTime timeFrom, DateTime timeTo, string period, int settingID)
         {
             this._mode = enMode.Add;
             this.OfferingID = offeringID;
@@ -43,7 +43,7 @@ namespace BLL
         }
 
         private clsExamSchedule(int? examID, int offeringID, string examDayName, DateTime examDate,
-            float timeFrom, float timeTo, string period, int settingID)
+            DateTime timeFrom, DateTime timeTo, string period, int settingID)
         {
             this._mode = enMode.Update;
             this.ExamID = examID;
@@ -196,7 +196,7 @@ namespace BLL
         }
 
         public static clsExamSchedule CreateForUpdate(int examID, int offeringID, string examDayName, DateTime examDate,
-            float timeFrom, float timeTo, string period, int settingID)
+            DateTime timeFrom, DateTime timeTo, string period, int settingID)
         {
             return new clsExamSchedule(examID, offeringID, examDayName, examDate, timeFrom, timeTo, period, settingID);
         }
