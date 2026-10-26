@@ -10,7 +10,7 @@ namespace DAL
     public class clsExamScheduleData
     {
         public static async Task<int?> AddNewAsync(int offeringId, string examDayName, DateTime examDate,
-            float timeFrom, float timeTo, string period, int settingId)
+            DateTime timeFrom, DateTime timeTo, string period, int settingId)
         {
             try
             {
@@ -23,8 +23,8 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@OfferingID", offeringId);
                     cmd.Parameters.AddWithValue("@ExamDayName", examDayName);
                     cmd.Parameters.AddWithValue("@ExamDate", examDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    cmd.Parameters.AddWithValue("@TimeFrom", timeFrom);
-                    cmd.Parameters.AddWithValue("@TimeTo", timeTo);
+                    cmd.Parameters.AddWithValue("@TimeFrom", timeFrom.ToString("HH:mm", CultureInfo.InvariantCulture));
+                    cmd.Parameters.AddWithValue("@TimeTo", timeTo.ToString("HH:mm", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@Period", period);
                     cmd.Parameters.AddWithValue("@SettingID", settingId);
 
@@ -43,7 +43,7 @@ namespace DAL
         }
 
         public static async Task<bool> UpdateAsync(int examId, int offeringId, string examDayName, DateTime examDate,
-            float timeFrom, float timeTo, string period, int settingId)
+            DateTime timeFrom, DateTime timeTo, string period, int settingId)
         {
             try
             {
@@ -63,8 +63,8 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@OfferingID", offeringId);
                     cmd.Parameters.AddWithValue("@ExamDayName", examDayName);
                     cmd.Parameters.AddWithValue("@ExamDate", examDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
-                    cmd.Parameters.AddWithValue("@TimeFrom", timeFrom);
-                    cmd.Parameters.AddWithValue("@TimeTo", timeTo);
+                    cmd.Parameters.AddWithValue("@TimeFrom", timeFrom.ToString("HH:mm", CultureInfo.InvariantCulture));
+                    cmd.Parameters.AddWithValue("@TimeTo", timeTo.ToString("HH:mm", CultureInfo.InvariantCulture));
                     cmd.Parameters.AddWithValue("@Period", period);
                     cmd.Parameters.AddWithValue("@SettingID", settingId);
 
@@ -105,8 +105,8 @@ namespace DAL
                                 OfferingID = Convert.ToInt32(reader["OfferingID"]),
                                 ExamDayName = reader["ExamDayName"].ToString(),
                                 ExamDate = DateTime.ParseExact(reader["ExamDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                                TimeFrom = Convert.ToSingle(reader["TimeFrom"]),
-                                TimeTo = Convert.ToSingle(reader["TimeTo"]),
+                                TimeFrom = DateTime.ParseExact(reader["TimeFrom"].ToString(), "HH:mm", CultureInfo.InvariantCulture),
+                                TimeTo = DateTime.ParseExact(reader["TimeTo"].ToString(), "HH:mm", CultureInfo.InvariantCulture),
                                 Period = reader["Period"].ToString(),
                                 SettingID = Convert.ToInt32(reader["SettingID"]),
                             };
@@ -147,8 +147,8 @@ namespace DAL
                                 OfferingID = Convert.ToInt32(reader["OfferingID"]),
                                 ExamDayName = reader["ExamDayName"].ToString(),
                                 ExamDate = DateTime.ParseExact(reader["ExamDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                                TimeFrom = Convert.ToSingle(reader["TimeFrom"]),
-                                TimeTo = Convert.ToSingle(reader["TimeTo"]),
+                                TimeFrom = DateTime.ParseExact(reader["TimeFrom"].ToString(), "HH:mm", CultureInfo.InvariantCulture),
+                                TimeTo = DateTime.ParseExact(reader["TimeTo"].ToString(), "HH:mm", CultureInfo.InvariantCulture),
                                 Period = reader["Period"].ToString(),
                                 SettingID = Convert.ToInt32(reader["SettingID"]),
                             };

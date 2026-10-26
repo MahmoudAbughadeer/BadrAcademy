@@ -79,7 +79,7 @@ namespace BadrAcademy.Forms.Halls
 
             if (_mode == enMode.Add)
             {
-                _hall = new clsHall(hallName, hallName, defaultCapacity, isActive);
+                _hall = new clsHall(hallName, hallType, defaultCapacity, isActive);
                 return;
             }
 

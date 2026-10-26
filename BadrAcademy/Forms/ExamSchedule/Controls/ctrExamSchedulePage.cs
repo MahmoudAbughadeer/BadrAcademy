@@ -38,13 +38,35 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
             cbSettings.ValueMember = "SettingID";
             cbSettings.DisplayMember = "SettingDetails";
             cbSettings.DataSource = dtSettings;
+            //============================================================================
+
+            DataTable dtDepartments = await clsDepartment.GetAllAsync();
+
+            DataRow defaultDepartmentRow = dtDepartments.NewRow();
+            defaultDepartmentRow["DepartmentID"] = 0;
+            defaultDepartmentRow["DepartmentName"] = "لاشئ";
+
+            dtDepartments.Rows.InsertAt(defaultDepartmentRow, 0);
+
+            cbDepartments.DataSource = dtDepartments;
+            cbDepartments.ValueMember = "DepartmentID";
+            cbDepartments.DisplayMember = "DepartmentName";
+
+            //============================================================================
+
+            cbLevels.DataSource = await clsLevel.GetAllAsync();
+            cbLevels.ValueMember = "LevelID";
+            cbLevels.DisplayMember = "LevelName";
+
+            //============================================================================
 
             if (dtSettings.Rows.Count > 0)
             {
                 cbSettings.SelectedIndex = 0;
+            
             }
-
-
+            cbDepartments.SelectedIndex = 0;
+            cbLevels.SelectedIndex = 2;
             cbPeriod.SelectedIndex = 0;
 
 
@@ -174,18 +196,24 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
         
         private void ApplyFilter()
         {
-            object selectedVAlue = cbSettings.SelectedValue;
-            int settingID = Convert.ToInt32(selectedVAlue);
-            string period = cbPeriod.Text.Trim();
 
-            if(period == "لاشئ")
-            {
-                _bindingSource.Filter = $@"SettingID = {settingID}";
+            if (cbSettings.SelectedValue == null || cbSettings.SelectedValue == DBNull.Value)
                 return;
-            }      
-            
-            _bindingSource.Filter = $@"SettingID = {settingID}
-                                       AND Period LIKE '%{period}%'";
+
+            int settingID = Convert.ToInt32(cbSettings.SelectedValue);
+            string levelName = cbLevels.Text.Trim();
+            string period = cbPeriod.Text.Trim() == "لاشئ" ? string.Empty : cbPeriod.Text.Trim();
+            string departmentName = cbDepartments.Text.Trim() == "لاشئ" ? string.Empty : cbDepartments.Text.Trim();
+
+            string filter = $"SettingID = {settingID} AND LevelName LIKE '%{levelName}%'";
+
+            if (!string.IsNullOrEmpty(period))
+                filter += $" AND Period LIKE '%{period}%'";
+
+            if (!string.IsNullOrEmpty(departmentName))
+                filter += $" AND DepartmentName LIKE '%{departmentName}%'";
+
+            _bindingSource.Filter = filter;
         }
 
         private async Task frmExamSchedule_SaveCompletedAsync()

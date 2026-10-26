@@ -12,8 +12,8 @@ namespace Shared.Models
         public int OfferingID { get; set; }
         public string ExamDayName { get; set; }
         public DateTime ExamDate { get; set; }
-        public float TimeFrom { get; set; }
-        public float TimeTo { get; set; }
+        public DateTime TimeFrom { get; set; }
+        public DateTime TimeTo { get; set; }
         public string Period { get; set; }
         public int SettingID { get; set; }
     }

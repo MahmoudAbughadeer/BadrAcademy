@@ -211,6 +211,10 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 HeaderText = "",
                 Text = "📝",
                 UseColumnTextForButtonValue = true,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    BackColor = Color.Green
+                },
                 FlatStyle = FlatStyle.Flat,
                 FillWeight = 4
             });
@@ -221,22 +225,35 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 HeaderText = "",
                 Text = "X",
                 UseColumnTextForButtonValue = true,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    BackColor = Color.Red
+                },
                 FlatStyle = FlatStyle.Flat,
                 FillWeight = 3
             });
         }
         
-        private void ApplyFilter()
+            private void ApplyFilter()
         {
             string levelName = cbLevels.Text.Trim();
-            string semester = cbSemesters.Text.Trim() == "لاشئ"? string.Empty : cbSemesters.Text.Trim();
+            string semester = cbSemesters.Text.Trim() == "لاشئ" ? string.Empty : cbSemesters.Text.Trim();
             string departmentName = cbDepartments.Text.Trim() == "لاشئ" ? string.Empty : cbDepartments.Text.Trim();
             string subjectName = cbSubjects.Text.Trim() == "لاشئ" ? string.Empty : cbSubjects.Text.Trim();
-          
-            _bindingSource.Filter = $@"LevelName LIKE '%{levelName}%' 
-                                       AND (Semester = '' OR Semester LIKE '%{semester}%')
-                                       AND (DepartmentName = '' OR DepartmentName LIKE '%{departmentName}%')
-                                       AND (SubjectName = '' OR SubjectName LIKE '%{subjectName}%')";
+
+            string filter = $"LevelName LIKE '%{levelName}%'";
+
+            if (!string.IsNullOrEmpty(semester))
+                filter += $" AND Semester LIKE '%{semester}%'";
+
+            if (!string.IsNullOrEmpty(departmentName))
+                filter += $" AND DepartmentName LIKE '%{departmentName}%'";
+
+            if (!string.IsNullOrEmpty(subjectName))
+                filter += $" AND SubjectName LIKE '%{subjectName}%'";
+
+            _bindingSource.Filter = filter;
+        
         }
 
         private async Task frmSubjectOfferings_SaveCompletedAsync()
