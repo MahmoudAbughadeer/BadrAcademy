@@ -74,7 +74,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 521);
+            this.panel1.Location = new System.Drawing.Point(0, 552);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(875, 66);
@@ -123,6 +123,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.ctrWait1);
             this.panel2.Controls.Add(this.lblOperationTitle);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.ctrSubjectOfferingCard1);
@@ -132,14 +133,14 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(875, 521);
+            this.panel2.Size = new System.Drawing.Size(875, 552);
             this.panel2.TabIndex = 29;
             // 
             // lblOperationTitle
             // 
             this.lblOperationTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOperationTitle.Font = new System.Drawing.Font("Segoe UI", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperationTitle.Location = new System.Drawing.Point(237, 9);
+            this.lblOperationTitle.Location = new System.Drawing.Point(237, 25);
             this.lblOperationTitle.Name = "lblOperationTitle";
             this.lblOperationTitle.Size = new System.Drawing.Size(429, 46);
             this.lblOperationTitle.TabIndex = 51;
@@ -148,7 +149,6 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ctrWait1);
             this.groupBox2.Controls.Add(this.dtpTimeTo);
             this.groupBox2.Controls.Add(this.dtpTimeFrom);
             this.groupBox2.Controls.Add(this.cbSettings);
@@ -166,7 +166,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.groupBox2.Controls.Add(this.cbPeriod);
             this.groupBox2.Controls.Add(this.Period);
             this.groupBox2.Controls.Add(this.pictureBox6);
-            this.groupBox2.Location = new System.Drawing.Point(26, 263);
+            this.groupBox2.Location = new System.Drawing.Point(26, 301);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -389,7 +389,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             // 
             this.ctrWait1.BackColor = System.Drawing.Color.Transparent;
             this.ctrWait1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrWait1.Location = new System.Drawing.Point(250, 0);
+            this.ctrWait1.Location = new System.Drawing.Point(270, 246);
             this.ctrWait1.Margin = new System.Windows.Forms.Padding(4);
             this.ctrWait1.Name = "ctrWait1";
             this.ctrWait1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -407,7 +407,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.ctrSubjectOfferingCard1.Name = "ctrSubjectOfferingCard1";
             this.ctrSubjectOfferingCard1.OfferingDetail = null;
             this.ctrSubjectOfferingCard1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrSubjectOfferingCard1.Size = new System.Drawing.Size(823, 200);
+            this.ctrSubjectOfferingCard1.Size = new System.Drawing.Size(823, 238);
             this.ctrSubjectOfferingCard1.TabIndex = 61;
             // 
             // frmAddEditExamSchedule
@@ -416,7 +416,7 @@ namespace BadrAcademy.Forms.ExamSchedule
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(875, 587);
+            this.ClientSize = new System.Drawing.Size(875, 618);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

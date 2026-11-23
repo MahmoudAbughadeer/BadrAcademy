@@ -19,21 +19,23 @@ namespace BLL
         public int LevelID { get; set; }
         public int DepartmentID { get; set; }
         public int DoctorID { get; set; }
+        public int Doctor2ID { get; set; }
         public string Semester { get; set; }
 
 
         //Ctor
-        public clsSubjectOffering(int subjectID, int levelID, int departmentID, int doctorID, string semester)
+        public clsSubjectOffering(int subjectID, int levelID, int departmentID, int doctorID, int doctor2ID, string semester)
         {
             this._mode = enMode.Add;
             this.SubjectID = subjectID;
             this.LevelID = levelID;
             this.DepartmentID = departmentID;
             this.DoctorID = doctorID;
+            this.Doctor2ID = doctor2ID;
             this.Semester = semester;
         }
 
-        private clsSubjectOffering(int? offeringID, int subjectID, int levelID, int departmentID, int doctorID, string semester)
+        private clsSubjectOffering(int? offeringID, int subjectID, int levelID, int departmentID, int doctorID, int doctor2ID, string semester)
         {
             this._mode = enMode.Update;
             this.OfferingID = offeringID;
@@ -41,6 +43,7 @@ namespace BLL
             this.LevelID = levelID;
             this.DepartmentID = departmentID;
             this.DoctorID = doctorID;
+            this.Doctor2ID = doctor2ID;
             this.Semester = semester;
         }
 
@@ -50,7 +53,15 @@ namespace BLL
         {
             try
             {
-                int? offeringID = await clsSubjectOfferingData.AddNewAsync(this.SubjectID, this.LevelID, this.DepartmentID, this.DoctorID, this.Semester);
+                int? offeringID = await clsSubjectOfferingData
+                    .AddNewAsync(
+                        this.SubjectID,
+                        this.LevelID,
+                        this.DepartmentID,
+                        this.DoctorID,
+                        this.Doctor2ID,
+                        this.Semester);
+
                 this.OfferingID = offeringID;
                 return offeringID != null;
             }
@@ -67,7 +78,15 @@ namespace BLL
                 if (!this.OfferingID.HasValue)
                     return false;
 
-                return await clsSubjectOfferingData.UpdateAsync(this.OfferingID.Value, this.SubjectID, this.LevelID, this.DepartmentID, this.DoctorID, this.Semester);
+                return await clsSubjectOfferingData
+                    .UpdateAsync(
+                        this.OfferingID.Value,
+                        this.SubjectID, 
+                        this.LevelID,
+                        this.DepartmentID,
+                        this.DoctorID,
+                        this.Doctor2ID,
+                        this.Semester);
             }
             catch
             {
@@ -106,7 +125,7 @@ namespace BLL
                     return null;
 
                 return new clsSubjectOffering(offering.OfferingID, offering.SubjectID, offering.LevelID,
-                    offering.DepartmentID, offering.DoctorID, offering.Semester);
+                    offering.DepartmentID, offering.DoctorID, offering.Doctor2ID, offering.Semester);
             }
             catch
             {
@@ -125,6 +144,7 @@ namespace BLL
                 throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
             }
         }
+        
         public static async Task<DataTable> GetAllWithNamesAsync()
         {
             try

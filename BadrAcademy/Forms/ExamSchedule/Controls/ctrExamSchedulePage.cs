@@ -122,7 +122,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "RowNumber",
                 DataPropertyName = "RowNumber",
                 HeaderText = "م",
-                FillWeight = 5,
+                FillWeight = 3,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.NotSortable
             });
@@ -132,7 +132,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "LevelName",
                 DataPropertyName = "LevelName",
                 HeaderText = "المستوى",
-                FillWeight = 14
+                FillWeight = 12
             });
 
 
@@ -141,7 +141,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DepartmentName",
                 DataPropertyName = "DepartmentName",
                 HeaderText = "القسم",
-                FillWeight = 14
+                FillWeight = 12
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -149,7 +149,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "SubjectName",
                 DataPropertyName = "SubjectName",
                 HeaderText = "المقرر",
-                FillWeight = 14
+                FillWeight = 12
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -157,7 +157,15 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DoctorName",
                 DataPropertyName = "DoctorName",
                 HeaderText = "الدكتور",
-                FillWeight = 14
+                FillWeight = 12
+            });
+
+            dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Doctor2Name",
+                DataPropertyName = "Doctor2Name",
+                HeaderText = "الدكتور",
+                FillWeight = 12
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn
@@ -173,7 +181,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "TimeFrom",
                 DataPropertyName = "TimeFrom",
                 HeaderText = "من",
-                FillWeight = 7
+                FillWeight = 6
             });
 
 
@@ -182,7 +190,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "TimeTo",
                 DataPropertyName = "TimeTo",
                 HeaderText = "الى",
-                FillWeight = 7
+                FillWeight = 6
             });
 
             dgvExamSchedule.Columns.Add(new DataGridViewTextBoxColumn

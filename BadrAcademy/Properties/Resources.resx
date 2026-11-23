@@ -121,9 +121,6 @@
   <data name="name32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\name32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="userWhite64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\userWhite64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Model" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Model.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,14 +145,14 @@
   <data name="setting321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Role32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Role32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="teacher32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="name321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\name321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log-in32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log-in32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,6 +163,9 @@
   <data name="department32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\department32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mail32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +174,9 @@
   </data>
   <data name="delete32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exam128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exam128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="departmentWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\departmentWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,6 +214,9 @@
   <data name="phone32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SubjectWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SubjectWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="blueClose32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blueClose32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,17 +232,17 @@
   <data name="setting64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting641.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="supplier128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\supplier128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="log-in32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\log-in32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Role32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Role32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LevelWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LevelWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="userWhite64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\userWhite64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="doctorWhile32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doctorWhile32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DistributionsWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DistributionsWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="password-manager128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password-manager128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,9 +265,6 @@
   <data name="number32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\number32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserInfo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserInfo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ChangePasswordWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChangePasswordWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -271,17 +274,23 @@
   <data name="logout32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DistributionsWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DistributionsWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UserInfo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserInfo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LevelWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LevelWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tests64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tests64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sharePercent32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sharePercent32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="word" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\word.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="address32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\address32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,8 +325,8 @@
   <data name="department128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\department128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SubjectWhite32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SubjectWhite32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="supplier128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\supplier128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loginGIF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginGIF.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,7 +334,7 @@
   <data name="changePassword32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\changePassword32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exam128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exam128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

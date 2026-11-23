@@ -124,7 +124,47 @@ namespace DAL
 
             return dt;
         }
+        public static async Task<DataTable> GetAllByDepartmentIdAsync(int? departmentID)
+        {
+            DataTable dt = new DataTable();
 
+            try
+            {
+                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
+                using (SqliteCommand cmd = new SqliteCommand(@"
+                    SELECT DISTINCT s.SubjectID, s.SubjectName
+                    FROM Subjects s
+                    JOIN SubjectOfferings so
+                    ON s.SubjectID = so.SubjectID
+                    WHERE @DepartmentID IS NULL OR so.DepartmentID = @DepartmentID
+                    ORDER BY s.SubjectID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@DepartmentID", (object)departmentID ?? DBNull.Value);
+                    await conn.OpenAsync();
+
+                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
+                    {
+                        dt.Columns.Add("SubjectID", typeof(int));
+                        dt.Columns.Add("SubjectName", typeof(string));
+
+                        while (await reader.ReadAsync())
+                        {
+                            dt.Rows.Add(
+                                reader.GetInt32(0),
+                                reader.GetString(1)
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsLogger.LogError(ex.ToString());
+                throw;
+            }
+
+            return dt;
+        }
         public static async Task<bool> DeleteAsync(int subjectId)
         {
             try

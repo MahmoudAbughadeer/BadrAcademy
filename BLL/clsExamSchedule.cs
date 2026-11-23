@@ -159,6 +159,17 @@ namespace BLL
             }
         }
 
+        public static async Task<DataTable> GetExamDayDataAsync(int levelID)
+        {
+            try
+            {
+                return await clsExamScheduleData.GetExamDayDataAsync(levelID);
+            }
+            catch
+            {
+                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
+            }
+        }
         public static async Task<DataTable> GetExamScheduleDetailsAsync()
         {
             try
@@ -201,5 +212,8 @@ namespace BLL
             return new clsExamSchedule(examID, offeringID, examDayName, examDate, timeFrom, timeTo, period, settingID);
         }
 
+        
+    
+    
     }
 }

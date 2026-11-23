@@ -9,20 +9,27 @@ namespace DAL
 {
     public class clsSubjectOfferingData
     {
-        public static async Task<int?> AddNewAsync(int subjectId, int levelId, int departmentId, int doctorId, string semester)
+        public static async Task<int?> AddNewAsync(
+            int subjectId,
+            int levelId,
+            int departmentId,
+            int doctorId,
+            int doctor2Id,
+            string semester)
         {
             try
             {
                 using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
                 using (SqliteCommand cmd = new SqliteCommand(@"
-                    INSERT INTO SubjectOfferings (SubjectID, LevelID, DepartmentID, DoctorID, Semester)
-                    VALUES (@SubjectID, @LevelID, @DepartmentID, @DoctorID, @Semester);
+                    INSERT INTO SubjectOfferings (SubjectID, LevelID, DepartmentID, DoctorID, Doctor2ID, Semester)
+                    VALUES (@SubjectID, @LevelID, @DepartmentID, @DoctorID, @Doctor2ID, @Semester);
                     SELECT last_insert_rowid();", conn))
                 {
                     cmd.Parameters.AddWithValue("@SubjectID", subjectId);
                     cmd.Parameters.AddWithValue("@LevelID", levelId);
                     cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
                     cmd.Parameters.AddWithValue("@DoctorID", doctorId);
+                    cmd.Parameters.AddWithValue("@Doctor2ID", doctor2Id);
                     cmd.Parameters.AddWithValue("@Semester", semester);
 
                     await conn.OpenAsync();
@@ -39,7 +46,15 @@ namespace DAL
             }
         }
 
-        public static async Task<bool> UpdateAsync(int offeringId, int subjectId, int levelId, int departmentId, int doctorID, string semester)
+
+        public static async Task<bool> UpdateAsync(
+            int offeringId,
+            int subjectId,
+            int levelId,
+            int departmentId, 
+            int doctorID,
+            int doctor2ID,
+            string semester)
         {
             try
             {
@@ -50,6 +65,7 @@ namespace DAL
                         LevelID      = @LevelID,
                         DepartmentID = @DepartmentID,
                         DoctorID     = @DoctorID,
+                        Doctor2ID     = @Doctor2ID,
                         Semester     = @Semester
                     WHERE OfferingID = @OfferingID;", conn))
                 {
@@ -58,6 +74,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@LevelID", levelId);
                     cmd.Parameters.AddWithValue("@DepartmentID", departmentId);
                     cmd.Parameters.AddWithValue("@DoctorID", doctorID);
+                    cmd.Parameters.AddWithValue("@Doctor2ID", doctor2ID);
                     cmd.Parameters.AddWithValue("@Semester", semester);
 
                     await conn.OpenAsync();
@@ -79,7 +96,7 @@ namespace DAL
             {
                 using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
                 using (SqliteCommand cmd = new SqliteCommand(@"
-                    SELECT OfferingID, SubjectID, LevelID, DepartmentID, DoctorID, Semester
+                    SELECT OfferingID, SubjectID, LevelID, DepartmentID, DoctorID, Doctor2ID, Semester
                     FROM SubjectOfferings
                     WHERE OfferingID = @OfferingID;", conn))
                 {
@@ -91,15 +108,22 @@ namespace DAL
                     {
                         if (await reader.ReadAsync())
                         {
-                            return new clsSubjectOfferingDto()
-                            {
-                                OfferingID = Convert.ToInt32(reader["OfferingID"]),
-                                SubjectID = Convert.ToInt32(reader["SubjectID"]),
-                                LevelID = Convert.ToInt32(reader["LevelID"]),
-                                DepartmentID = Convert.ToInt32(reader["DepartmentID"]),
-                                DoctorID = Convert.ToInt32(reader["DoctorID"]),
-                                Semester = reader["Semester"].ToString()
-                            };
+                            int doctor2ID;
+                            if (reader["Doctor2ID"] == DBNull.Value || reader["Doctor2ID"] == null)
+                                doctor2ID = 0;
+                            else
+                                doctor2ID = Convert.ToInt32(reader["Doctor2ID"]);
+
+                                return new clsSubjectOfferingDto()
+                                {
+                                    OfferingID = Convert.ToInt32(reader["OfferingID"]),
+                                    SubjectID = Convert.ToInt32(reader["SubjectID"]),
+                                    LevelID = Convert.ToInt32(reader["LevelID"]),
+                                    DepartmentID = Convert.ToInt32(reader["DepartmentID"]),
+                                    DoctorID = Convert.ToInt32(reader["DoctorID"]),
+                                    Doctor2ID = doctor2ID,
+                                    Semester = reader["Semester"].ToString()
+                                };
                         }
 
                         return null;
@@ -125,13 +149,15 @@ namespace DAL
                         lv.LevelName,
                         dp.DepartmentName,
                         d.DoctorName,
+                        d2.DoctorName AS Doctor2Name,
                         so.Semester,
                         EXISTS (SELECT 1 FROM ExamSchedule e WHERE e.OfferingID = so.OfferingID) AS HasExam
                     FROM SubjectOfferings so
-                    JOIN Subjects s     ON s.SubjectID       = so.SubjectID
-                    JOIN Levels lv      ON lv.LevelID        = so.LevelID
-                    JOIN Departments dp ON dp.DepartmentID   = so.DepartmentID
-                    JOIN Doctors d      ON d.DoctorID        = so.DoctorID
+                    JOIN Subjects s         ON s.SubjectID       = so.SubjectID
+                    JOIN Levels lv          ON lv.LevelID        = so.LevelID
+                    JOIN Departments dp     ON dp.DepartmentID   = so.DepartmentID
+                    JOIN Doctors d          ON d.DoctorID        = so.DoctorID
+                    LEFT JOIN Doctors d2    ON d2.DoctorID       = so.Doctor2ID
                     WHERE so.OfferingID = @OfferingID
                     ORDER BY so.OfferingID", conn))
                 {
@@ -145,11 +171,13 @@ namespace DAL
                         {
                             return new clsOfferingDetailsDto()
                             {
+                                
                                 OfferingID = Convert.ToInt32(reader["OfferingID"]),
                                 SubjectName = reader["SubjectName"].ToString(),
                                 LevelName = reader["LevelName"].ToString(),
                                 DepartmentName = reader["DepartmentName"].ToString(),
                                 DoctorName = reader["DoctorName"].ToString(),
+                                Doctor2Name = Convert.ToString(reader["Doctor2Name"] ?? ""),
                                 Semester = reader["Semester"].ToString(),
                                 HasExam = Convert.ToBoolean(reader["HasExam"])
                             };
@@ -180,6 +208,7 @@ namespace DAL
                         lv.LevelName,
                         dp.DepartmentName,
                         d.DoctorName,
+                        d2.DoctorName,
                         so.Semester,
                         EXISTS (SELECT 1 FROM ExamSchedule e WHERE e.OfferingID = so.OfferingID) AS HasExam
                     FROM SubjectOfferings so
@@ -187,6 +216,7 @@ namespace DAL
                     JOIN Levels lv      ON lv.LevelID        = so.LevelID
                     JOIN Departments dp ON dp.DepartmentID   = so.DepartmentID
                     JOIN Doctors d      ON d.DoctorID        = so.DoctorID
+                    LEFT JOIN Doctors d2     ON d2.DoctorID        = so.Doctor2ID
                     ORDER BY so.OfferingID", conn))
                 {
                     await conn.OpenAsync();
@@ -198,6 +228,7 @@ namespace DAL
                         dt.Columns.Add("LevelName", typeof(string));
                         dt.Columns.Add("DepartmentName", typeof(string));
                         dt.Columns.Add("DoctorName", typeof(string));
+                        dt.Columns.Add("Doctor2Name", typeof(string));
                         dt.Columns.Add("Semester", typeof(string));
                         dt.Columns.Add("HasExam", typeof(bool));
 
@@ -209,8 +240,9 @@ namespace DAL
                                 reader.GetString(2),
                                 reader.GetString(3),
                                 reader.GetString(4),
-                                reader.GetString(5),
-                                reader.GetBoolean(6)
+                                Convert.ToString(reader[5]?? ""),
+                                reader.GetString(6),
+                                reader.GetBoolean(7)
 
                                 );
                         }

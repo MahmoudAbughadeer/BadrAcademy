@@ -90,13 +90,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAnswerEnvelopesData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
+    <Compile Include="clsDayGeneralData.cs" />
     <Compile Include="clsDepartmentData.cs" />
     <Compile Include="clsDistributionTemplateData.cs" />
     <Compile Include="clsDoctorData.cs" />
     <Compile Include="clsExamScheduleData.cs" />
     <Compile Include="clsHallData.cs" />
     <Compile Include="clsLevelData.cs" />
+    <Compile Include="clsQuestionEnvelopesData.cs" />
     <Compile Include="clsSettingData.cs" />
     <Compile Include="clsSubjectData.cs" />
     <Compile Include="clsSubjectOfferingData.cs" />

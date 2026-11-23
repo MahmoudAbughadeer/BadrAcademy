@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.gbSubjectOfferingInfo = new System.Windows.Forms.GroupBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblDoctorName = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblSemesterName = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblDepartmentName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLevelName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,26 +47,19 @@
             this.lblOfferingID = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblDepartmentName = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblSemesterName = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.lblDoctorName = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblDoctor2Name = new System.Windows.Forms.Label();
             this.gbSubjectOfferingInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSubjectOfferingInfo
             // 
+            this.gbSubjectOfferingInfo.Controls.Add(this.lblDoctor2Name);
             this.gbSubjectOfferingInfo.Controls.Add(this.pictureBox4);
             this.gbSubjectOfferingInfo.Controls.Add(this.lblDoctorName);
             this.gbSubjectOfferingInfo.Controls.Add(this.label7);
@@ -81,10 +83,94 @@
             this.gbSubjectOfferingInfo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.gbSubjectOfferingInfo.Name = "gbSubjectOfferingInfo";
             this.gbSubjectOfferingInfo.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.gbSubjectOfferingInfo.Size = new System.Drawing.Size(809, 200);
+            this.gbSubjectOfferingInfo.Size = new System.Drawing.Size(803, 229);
             this.gbSubjectOfferingInfo.TabIndex = 16;
             this.gbSubjectOfferingInfo.TabStop = false;
             this.gbSubjectOfferingInfo.Text = "بيانات اسناد المواد";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::BadrAcademy.Properties.Resources.name32;
+            this.pictureBox4.Location = new System.Drawing.Point(378, 146);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 73;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblDoctorName
+            // 
+            this.lblDoctorName.Location = new System.Drawing.Point(19, 149);
+            this.lblDoctorName.Name = "lblDoctorName";
+            this.lblDoctorName.Size = new System.Drawing.Size(345, 26);
+            this.lblDoctorName.TabIndex = 72;
+            this.lblDoctorName.Text = "؟؟";
+            this.lblDoctorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(422, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 31);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "الدكتور:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::BadrAcademy.Properties.Resources.name32;
+            this.pictureBox3.Location = new System.Drawing.Point(659, 146);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 70;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblSemesterName
+            // 
+            this.lblSemesterName.Location = new System.Drawing.Point(495, 149);
+            this.lblSemesterName.Name = "lblSemesterName";
+            this.lblSemesterName.Size = new System.Drawing.Size(150, 26);
+            this.lblSemesterName.TabIndex = 69;
+            this.lblSemesterName.Text = "؟؟";
+            this.lblSemesterName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(694, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 31);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "الفصل:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BadrAcademy.Properties.Resources.name32;
+            this.pictureBox2.Location = new System.Drawing.Point(378, 101);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 67;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblDepartmentName
+            // 
+            this.lblDepartmentName.Location = new System.Drawing.Point(19, 104);
+            this.lblDepartmentName.Name = "lblDepartmentName";
+            this.lblDepartmentName.Size = new System.Drawing.Size(345, 26);
+            this.lblDepartmentName.TabIndex = 66;
+            this.lblDepartmentName.Text = "؟؟";
+            this.lblDepartmentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(422, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 31);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "الشعبة:";
             // 
             // pictureBox1
             // 
@@ -170,89 +256,14 @@
             this.label15.TabIndex = 55;
             this.label15.Text = "المعرف: ";
             // 
-            // pictureBox2
+            // lblDoctor2Name
             // 
-            this.pictureBox2.Image = global::BadrAcademy.Properties.Resources.name32;
-            this.pictureBox2.Location = new System.Drawing.Point(378, 101);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 67;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblDepartmentName
-            // 
-            this.lblDepartmentName.Location = new System.Drawing.Point(19, 104);
-            this.lblDepartmentName.Name = "lblDepartmentName";
-            this.lblDepartmentName.Size = new System.Drawing.Size(345, 26);
-            this.lblDepartmentName.TabIndex = 66;
-            this.lblDepartmentName.Text = "؟؟";
-            this.lblDepartmentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 31);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "الشعبة:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::BadrAcademy.Properties.Resources.name32;
-            this.pictureBox3.Location = new System.Drawing.Point(659, 146);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 70;
-            this.pictureBox3.TabStop = false;
-            // 
-            // lblSemesterName
-            // 
-            this.lblSemesterName.Location = new System.Drawing.Point(495, 149);
-            this.lblSemesterName.Name = "lblSemesterName";
-            this.lblSemesterName.Size = new System.Drawing.Size(150, 26);
-            this.lblSemesterName.TabIndex = 69;
-            this.lblSemesterName.Text = "؟؟";
-            this.lblSemesterName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(694, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 31);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "الفصل:";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::BadrAcademy.Properties.Resources.name32;
-            this.pictureBox4.Location = new System.Drawing.Point(378, 146);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 73;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblDoctorName
-            // 
-            this.lblDoctorName.Location = new System.Drawing.Point(19, 149);
-            this.lblDoctorName.Name = "lblDoctorName";
-            this.lblDoctorName.Size = new System.Drawing.Size(345, 26);
-            this.lblDoctorName.TabIndex = 72;
-            this.lblDoctorName.Text = "؟؟";
-            this.lblDoctorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(422, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 31);
-            this.label7.TabIndex = 71;
-            this.label7.Text = "الدكتور:";
+            this.lblDoctor2Name.Location = new System.Drawing.Point(19, 185);
+            this.lblDoctor2Name.Name = "lblDoctor2Name";
+            this.lblDoctor2Name.Size = new System.Drawing.Size(345, 26);
+            this.lblDoctor2Name.TabIndex = 74;
+            this.lblDoctor2Name.Text = "؟؟";
+            this.lblDoctor2Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ctrSubjectOfferingCard
             // 
@@ -263,15 +274,15 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "ctrSubjectOfferingCard";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(809, 200);
+            this.Size = new System.Drawing.Size(803, 229);
             this.gbSubjectOfferingInfo.ResumeLayout(false);
             this.gbSubjectOfferingInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,5 +307,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblDepartmentName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDoctor2Name;
     }
 }

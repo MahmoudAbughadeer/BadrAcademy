@@ -114,7 +114,17 @@ namespace BLL
                 throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
             }
         }
-
+        public static async Task<DataTable> GetAllByDepartmentIdAsync(int? departmentID)
+        {
+            try
+            {
+                return await clsSubjectData.GetAllByDepartmentIdAsync(departmentID);
+            }
+            catch
+            {
+                throw new Exception("حدث خطأ أثناء محاولة استرداد البيانات");
+            }
+        }
 
         public static async Task<bool> DeleteAsync(int subjectId)
         {

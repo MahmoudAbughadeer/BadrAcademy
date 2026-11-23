@@ -208,6 +208,7 @@ namespace DAL
                     	d.DepartmentName,
                     	s.SubjectName,
                     	doc.DoctorName,
+                    	doc2.DoctorName,
                     	es.ExamDate,
                     	es.ExamDayName,
                     	es.TimeFrom,
@@ -219,6 +220,7 @@ namespace DAL
                    JOIN Departments d 	     ON so.DepartmentID = d.DepartmentID
                    JOIN Subjects s          ON so.SubjectID = s.SubjectID
                    JOIN Doctors doc	     ON so.DoctorID = doc.DoctorID
+                   LEFT JOIN Doctors doc2	     ON so.Doctor2ID = doc2.DoctorID
                    ORDER BY es.ExamDate;", conn))
                 {
                     await conn.OpenAsync();
@@ -232,6 +234,7 @@ namespace DAL
                         dt.Columns.Add("DepartmentName", typeof(string));
                         dt.Columns.Add("SubjectName", typeof(string));
                         dt.Columns.Add("DoctorName", typeof(string));
+                        dt.Columns.Add("Doctor2Name", typeof(string));
                         dt.Columns.Add("ExamDate", typeof(string));
                         dt.Columns.Add("ExamDayName", typeof(string));
                         dt.Columns.Add("TimeFrom", typeof(string));
@@ -248,11 +251,12 @@ namespace DAL
                                 reader.GetString(4),
                                 reader.GetString(5),
                                 reader.GetString(6),
-                                reader.GetString(7),
+                                Convert.ToString(reader[7]?? ""),
                                 reader.GetString(8),
                                 reader.GetString(9),
                                 reader.GetString(10),
-                                reader.GetString(11)
+                                reader.GetString(11),
+                                reader.GetString(12)
                             );
                         }
                     }
@@ -314,5 +318,57 @@ namespace DAL
                 throw;
             }
         }
+
+
+        public static async Task<DataTable> GetExamDayDataAsync(int LevelID)
+        {
+            DataTable dt = new DataTable();
+
+            // Define columns manually
+            dt.Columns.Add("ExamDate", typeof(string));
+            dt.Columns.Add("ExamDayName", typeof(string));
+            dt.Columns.Add("Period", typeof(string));
+            dt.Columns.Add("Level", typeof(string));
+
+            try
+            {
+                using (SqliteConnection conn = new SqliteConnection(clsDataAccessSettings.ConnectionString))
+                using (SqliteCommand cmd = new SqliteCommand(@"
+                            SELECT DISTINCT ExamDate, ExamDayName, Period, LevelName AS Level
+                            FROM ExamSchedule AS es
+                            JOIN SubjectOfferings so ON so.OfferingID = es.OfferingID
+                            JOIN Levels l ON l.LevelID = so.LevelID
+                            WHERE l.LevelID = @LevelID
+                            ORDER BY ExamDate", conn))
+                {
+                    await conn.OpenAsync();
+
+                    cmd.Parameters.AddWithValue("@LevelID", LevelID);
+
+                    using (SqliteDataReader reader = (SqliteDataReader)await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            DataRow row = dt.NewRow();
+
+                            row["ExamDate"] = reader["ExamDate"];
+                            row["ExamDayName"] = reader["ExamDayName"];
+                            row["Period"] = reader["Period"];
+                            row["Level"] = reader["Level"];
+
+                            dt.Rows.Add(row);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsLogger.LogError(ex.ToString());
+                throw;
+            }
+
+            return dt;
+        }
+
     }
 }
