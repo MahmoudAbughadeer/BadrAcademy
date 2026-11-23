@@ -59,12 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAnswerEnvelopes.cs" />
+    <Compile Include="clsDayGeneral.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsDistributionTemplate.cs" />
     <Compile Include="clsDoctor.cs" />
     <Compile Include="clsExamSchedule.cs" />
     <Compile Include="clsHall.cs" />
     <Compile Include="clsLevel.cs" />
+    <Compile Include="clsQuestionEnvelopes.cs" />
     <Compile Include="clsSetting.cs" />
     <Compile Include="clsSubject.cs" />
     <Compile Include="clsSubjectOffering.cs" />

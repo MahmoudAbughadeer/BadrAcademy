@@ -45,10 +45,14 @@ namespace BadrAcademy.Forms.SubjectAssignments
             cbSubjects.DisplayMember = "SubjectName";
 
             //================================================================
-            cbDoctors.DataSource = await clsDoctor.GetAllAsync();
+            DataTable dtDoctors = await clsDoctor.GetAllAsync(); ;
+            cbDoctors.DataSource = dtDoctors;
             cbDoctors.ValueMember = "DoctorID";
             cbDoctors.DisplayMember = "DoctorName";
 
+            cbDoctors2.DataSource = dtDoctors;
+            cbDoctors2.ValueMember = "DoctorID";
+            cbDoctors2.DisplayMember = "DoctorName";
 
             cbSemesters.SelectedIndex = 0;
             cbLevels.SelectedIndex = 2;
@@ -100,6 +104,15 @@ namespace BadrAcademy.Forms.SubjectAssignments
                     MessageBox.Show("فشل حذف السجل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            if (dgvSubjectAssignments.Columns[e.ColumnIndex].Name == "Update")
+            {
+                int offeringId = clsDataGridViewHelper.GetCellValueAsInt(dgvSubjectAssignments, "OfferingID");
+
+                frmEditSubjectOfferings frm  = new frmEditSubjectOfferings(offeringId);
+                frm.SaveCompleted += LoadSubjectOfferingsDataAsync;
+                frm.ShowDialog();
+                await SaveCompleted?.Invoke();
+            }
         }
 
 
@@ -118,9 +131,10 @@ namespace BadrAcademy.Forms.SubjectAssignments
             int levelID = Convert.ToInt32(cbLevels.SelectedValue);
             int departmentID = Convert.ToInt32(cbDepartments.SelectedValue);
             int doctorID = Convert.ToInt32(cbDoctors.SelectedValue);
+            int doctor2ID = Convert.ToInt32(cbDoctors2.SelectedValue);
             string semester = cbSemesters.Text.Trim();
 
-            _subjectOffering = new clsSubjectOffering(subjectID, levelID, departmentID, doctorID, semester);
+            _subjectOffering = new clsSubjectOffering(subjectID, levelID, departmentID, doctorID, doctor2ID, semester);
         }
 
         private void InitializeDataGridViewColumns()
@@ -165,7 +179,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "DepartmentName",
                 DataPropertyName = "DepartmentName",
                 HeaderText = "الشعب",
-                FillWeight = 20
+                FillWeight = 15
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
@@ -173,7 +187,7 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 Name = "SubjectName",
                 DataPropertyName = "SubjectName",
                 HeaderText = "المقرر",
-                FillWeight = 25
+                FillWeight = 15
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
@@ -182,6 +196,23 @@ namespace BadrAcademy.Forms.SubjectAssignments
                 DataPropertyName = "DoctorName",
                 HeaderText = "الدكتور",
                 FillWeight = 15
+            });
+            dgvSubjectAssignments.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Doctor2Name",
+                DataPropertyName = "Doctor2Name",
+                HeaderText = "الدكتور2",
+                FillWeight = 15
+            });
+
+            dgvSubjectAssignments.Columns.Add(new DataGridViewButtonColumn
+            {
+                Name = "Update",
+                HeaderText = "تعديل",
+                Text = "📝",
+                UseColumnTextForButtonValue = true,
+                FlatStyle = FlatStyle.Flat,
+                FillWeight = 10
             });
 
             dgvSubjectAssignments.Columns.Add(new DataGridViewButtonColumn
@@ -230,6 +261,5 @@ namespace BadrAcademy.Forms.SubjectAssignments
             ApplyFilter();
         }
 
-        
     }
 }

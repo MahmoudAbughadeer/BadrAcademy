@@ -169,7 +169,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "SubjectName",
                 DataPropertyName = "SubjectName",
                 HeaderText = "المقرر",
-                FillWeight = 20
+                FillWeight = 18
             });
 
             dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
@@ -177,7 +177,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "LevelName",
                 DataPropertyName = "LevelName",
                 HeaderText = "المستوى",
-                FillWeight = 13
+                FillWeight = 10
             });
 
 
@@ -186,7 +186,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DepartmentName",
                 DataPropertyName = "DepartmentName",
                 HeaderText = "القسم",
-                FillWeight = 20
+                FillWeight = 15
             });
 
             dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
@@ -194,7 +194,15 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
                 Name = "DoctorName",
                 DataPropertyName = "DoctorName",
                 HeaderText = "الدكتور",
-                FillWeight = 20
+                FillWeight = 15
+            });
+
+            dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Doctor2Name",
+                DataPropertyName = "Doctor2Name",
+                HeaderText = "الدكتور",
+                FillWeight = 15
             });
 
             dgvSubjectOfferings.Columns.Add(new DataGridViewTextBoxColumn

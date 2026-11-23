@@ -13,6 +13,7 @@ namespace Shared.Models
         public string LevelName { get; set; }
         public string DepartmentName { get; set; }
         public string DoctorName { get; set; }
+        public string Doctor2Name { get; set; }
         public string Semester { get; set; }
         public bool HasExam {  get; set; }
     }

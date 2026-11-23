@@ -3,6 +3,7 @@ using BadrAcademy.Forms.Doctors.Controls;
 using BadrAcademy.Forms.Halls.Controls;
 using BadrAcademy.Forms.Levels.Controls;
 using BadrAcademy.Forms.DistributionTemplates.Controls;
+using BadrAcademy.Forms.Exporters.Controls;
 using BadrAcademy.Forms.Misc.Controls;
 using BadrAcademy.Forms.Settings.Controls;
 using BadrAcademy.Forms.SubjectAssignments.Controls;
@@ -31,17 +32,19 @@ namespace BadrAcademy.Forms.Misc
             pPagePlace.Controls.Add(page);
         }
 
-        private void frmHome2_Load(object sender, EventArgs e)
+        private void frmHome_Load(object sender, EventArgs e)
         {
             lblCurrentUsername.Text = clsGlobal.CurrentUser.Username;
             lblCurrentUserFullName.Text = clsGlobal.CurrentUser.FullName;
+
+            OpenPage(new ctrExportersPage());
         }
 
 
         //Tool strip menu items event
         private void tsmiHome_Click(object sender, EventArgs e)
         {
-
+            OpenPage(new ctrExportersPage());
         }
 
         private void tsmiAcademicYear_Click(object sender, EventArgs e)

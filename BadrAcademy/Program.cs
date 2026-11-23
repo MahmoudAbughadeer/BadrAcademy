@@ -15,7 +15,7 @@ namespace BadrAcademy
         static void Main()
         {
             //Initialize Database
-            clsSystemManager.InitializeSystem();
+            //clsSystemManager.InitializeSystem();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

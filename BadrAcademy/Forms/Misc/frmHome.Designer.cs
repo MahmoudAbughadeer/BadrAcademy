@@ -37,9 +37,9 @@
             this.tsmiDepartments = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiHalls = new System.Windows.Forms.ToolStripMenuItem();
             this.االبياناتالاكاديميةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDoctors = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSubjects = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSubjectsAssignment = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDoctors = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmisTests = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExamScchedule = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDistributions = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,6 +164,17 @@
             this.االبياناتالاكاديميةToolStripMenuItem.Size = new System.Drawing.Size(263, 68);
             this.االبياناتالاكاديميةToolStripMenuItem.Text = "البيانات الاكاديمية";
             // 
+            // tsmiDoctors
+            // 
+            this.tsmiDoctors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.tsmiDoctors.ForeColor = System.Drawing.Color.White;
+            this.tsmiDoctors.Image = global::BadrAcademy.Properties.Resources.doctorWhile32;
+            this.tsmiDoctors.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiDoctors.Name = "tsmiDoctors";
+            this.tsmiDoctors.Size = new System.Drawing.Size(257, 38);
+            this.tsmiDoctors.Text = "المدرسون";
+            this.tsmiDoctors.Click += new System.EventHandler(this.tsmiDoctors_Click);
+            // 
             // tsmiSubjects
             // 
             this.tsmiSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
@@ -185,17 +196,6 @@
             this.tsmiSubjectsAssignment.Size = new System.Drawing.Size(257, 38);
             this.tsmiSubjectsAssignment.Text = "إسناد المقررات";
             this.tsmiSubjectsAssignment.Click += new System.EventHandler(this.tsmiSubjectsAssignment_Click);
-            // 
-            // tsmiDoctors
-            // 
-            this.tsmiDoctors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.tsmiDoctors.ForeColor = System.Drawing.Color.White;
-            this.tsmiDoctors.Image = global::BadrAcademy.Properties.Resources.doctorWhile32;
-            this.tsmiDoctors.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiDoctors.Name = "tsmiDoctors";
-            this.tsmiDoctors.Size = new System.Drawing.Size(257, 38);
-            this.tsmiDoctors.Text = "المدرسون";
-            this.tsmiDoctors.Click += new System.EventHandler(this.tsmiDoctors_Click);
             // 
             // tsmisTests
             // 
@@ -387,7 +387,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.frmHome2_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmHome_Load);
             this.msHome.ResumeLayout(false);
             this.msHome.PerformLayout();
             this.panel1.ResumeLayout(false);

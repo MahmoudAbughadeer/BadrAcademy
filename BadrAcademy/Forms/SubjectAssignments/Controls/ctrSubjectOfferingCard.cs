@@ -27,6 +27,7 @@ namespace BadrAcademy.Forms.SubjectAssignments.Controls
             lblDepartmentName.Text = OfferingDetail.DepartmentName.Trim();
             lblSemesterName.Text = OfferingDetail.Semester.Trim();
             lblDoctorName.Text = OfferingDetail.DoctorName.Trim();
+            lblDoctor2Name.Text = OfferingDetail.Doctor2Name.Trim();
         }
     }
 }
